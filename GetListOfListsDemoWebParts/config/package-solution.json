@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "get-list-of-lists-demo-web-parts-client-side-solution",
+    "id": "715aad38-2334-483a-b56c-48d0080b9854",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "get-list-of-lists-demo-web-parts description"
+      },
+      "longDescription": {
+        "default": "get-list-of-lists-demo-web-parts description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "get-list-of-lists-demo-web-parts Feature",
+        "description": "The feature that activates elements of the get-list-of-lists-demo-web-parts solution.",
+        "id": "127fa25b-c73b-4094-ae71-097b52599fff",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/get-list-of-lists-demo-web-parts.sppkg"
+  }
+}

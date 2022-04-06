@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "0762f083-b3c4-4ca0-a434-1b1544f8fcd3",
+  "alias": "GetListOfListDemoWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart",
+    "TeamsPersonalApp",
+    "TeamsTab",
+    "SharePointFullPage"
+  ],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": { "default": "Other" },
+      "title": { "default": "List Of Products By Hoang" },
+      "description": { "default": "getListOfListDemo description" },
+      "officeFabricIconFontName": "Page",
+      "properties": {
+        "description": "List of Products",
+        "productname": "",
+        "productdescription": "",
+        "productcost": 0,
+        "quantity": 0,
+        "billamount": 0,
+        "discount": 0,
+        "netbillamount": 0,
+        "IsCertified": false,
+        "Rating": 1
+      }
+    }
+  ]
+}
