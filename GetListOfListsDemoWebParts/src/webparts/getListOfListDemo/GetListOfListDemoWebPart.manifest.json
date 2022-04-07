@@ -21,10 +21,10 @@
       "group": { "default": "Other" },
       "title": { "default": "List Of Products By Hoang" },
       "description": { "default": "getListOfListDemo description" },
-      "officeFabricIconFontName": "Page",
+      // "officeFabricIconFontName": "  BugSolid",
+      "iconImageUrl": "https://www.mobafire.com/images/champion/square/yasuo.png",
       "properties": {
         "description": "List of Products",
-        "productname": "",
         "productdescription": "",
         "productcost": 0,
         "quantity": 0,
@@ -32,7 +32,8 @@
         "discount": 0,
         "netbillamount": 0,
         "IsCertified": false,
-        "Rating": 1
+        "Rating": 1,
+        "imageFileType": ""
       }
     }
   ]
