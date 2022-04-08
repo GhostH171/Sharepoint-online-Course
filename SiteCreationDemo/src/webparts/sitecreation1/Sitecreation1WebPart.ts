@@ -37,12 +37,56 @@ export default class Sitecreation1WebPart extends BaseClientSideWebPart<ISitecre
 
         Sub Site Title: <br/><input type='text' id='txtSubSiteTitle'/><br/>
         Sub Site Url: <br/><input type='text' id='txtSubSiteUrl'/><br/>
-        Sub Site Description: <br/><input type='text' id='txtSubSiteDescription' rows="5" cols="30"/></textarea><br/>
+        Sub Site Description: <br/><input type='text' id='txtSubSiteDescription' rows="5" cols="30"/></textarea><br/><br/>
         <input type="button" id="btnCreateSubSite" value="Create Sub Site"/><br/>
       </div>
     `;
+    this.bindEvents();
   }
 
+  private bindEvents(): void {
+    debugger;
+    this.domElement
+      .querySelector("#btnCreateSubSite")
+      .addEventListener("click", () => {
+        this.createSubSIte();
+      });
+  }
+  private createSubSIte(): void {
+    let subSiteTitle = document.getElementById("txtSubSiteTitle")["value"];
+    let subSiteUrl = document.getElementById("txtSubSiteurl")["value"];
+    let subSiteDescription = document.getElementById("txtSubSiteDescription")[
+      "value"
+    ];
+
+    const url: string =
+      this.context.pageContext.web.absoluteUrl + "/_api/web/webinfos/add";
+    const spHttpClientOptions: ISPHttpClientOptions = {
+      body: `{
+        "parameters":{
+          "@odata.type":"SP.WebInfoCreationInformation",
+          "Title":"${subSiteTitle}",
+          "Url":"${subSiteUrl}",
+          "Description" : "${subSiteDescription}",
+          "Language":1033,
+          "WebTemplate":"STS#0",
+          "UseUniquePermissions":true
+        }
+      }`,
+    };
+
+    this.context.spHttpClient
+      .post(url, SPHttpClient.configurations.v1, spHttpClientOptions)
+      .then((response: SPHttpClientResponse) => {
+        if (response.status === 200) {
+          alert("New Subtitile has been created successfully");
+        } else {
+          alert(
+            "Error Message: " + response.status + "-" + response.statusText
+          );
+        }
+      });
+  }
   private _getEnvironmentMessage(): string {
     if (!!this.context.sdks.microsoftTeams) {
       // running in Teams

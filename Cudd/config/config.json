@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "cudd-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cudd/CuddWebPart.js",
+          "manifest": "./src/webparts/cudd/CuddWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CuddWebPartStrings": "lib/webparts/cudd/loc/{locale}.js"
+  }
+}
