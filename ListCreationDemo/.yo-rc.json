@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "list-creation-demo",
+    "libraryId": "b6009007-d2f9-4ce9-bb8c-26fd30e82eb5",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "list-creation-demo",
+    "solutionShortDescription": "list-creation-demo description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "hello-new-properties",
+    "libraryId": "4b065503-90eb-4ac1-bc4e-611f594be99e",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "HelloNewProperties",
+    "solutionShortDescription": "HelloNewProperties description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

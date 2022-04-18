@@ -1,7 +1,8 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom'
+import * as React from "react";
+import * as ReactDom from "react-dom";
 
 import { Version } from "@microsoft/sp-core-library";
+import { DisplayMode } from "@microsoft/sp-core-library";
 import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
@@ -31,8 +32,14 @@ export default class HelloWorld2WebPart extends BaseClientSideWebPart<IHelloWorl
       New List Description: <br/><input type ='text' id='txtNewListDescription'/><br/><br/>
       <input type='button' id='btnCreateNewList' value='Create New List'>
     </div>`;
+
+    const pageMode: string =
+      this.displayMode === DisplayMode.Edit
+        ? "You are in edit mode"
+        : "You are in read mode";
     this.bindEvents();
   }
+
   private bindEvents(): void {
     this.domElement
       .querySelector("#btnCreateNewList")

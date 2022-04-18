@@ -18,7 +18,7 @@ export default class NewListCreationWp extends React.Component<INewListCreationW
       environmentMessage,
       hasTeamsContext,
       userDisplayName
-    } = this.props;r
+    } = this.props;
 
     return (
       <section className={`${styles.newListCreationWp} ${hasTeamsContext ? styles.teams : ''}`}>

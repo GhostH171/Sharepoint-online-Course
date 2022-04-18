@@ -1,14 +1,16 @@
+import { IReadonlyTheme } from "@microsoft/sp-component-base";
 import { Version } from "@microsoft/sp-core-library";
 import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
 } from "@microsoft/sp-property-pane";
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
-import { IReadonlyTheme } from "@microsoft/sp-component-base";
-import { escape } from "@microsoft/sp-lodash-subset";
-
-import styles from "./CuddWebPart.module.scss";
 import * as strings from "CuddWebPartStrings";
+import {
+  ISPHttpClientOptions,
+  SPHttpClient,
+  SPHttpClientResponse,
+} from "@microsoft/sp-http";
 
 export interface ICuddWebPartProps {
   description: string;
@@ -77,6 +79,60 @@ export default class CuddWebPart extends BaseClientSideWebPart<ICuddWebPartProps
     <div id="divStatus"/>
     </div>
     `;
+
+    this._bindEvents();
+  }
+  private _bindEvents(): void {
+    this.domElement
+      .querySelector("#btnSubmit")
+      .addEventListener("click", () => {
+        this.addListItem();
+      });
+  }
+  private addListItem(): void {
+    var softwaretitle = document.getElementById("txtSoftwareTitle")["value"];
+    var softwarename = document.getElementById("txtSoftwareName")["value"];
+    var softwareversion =
+      document.getElementById("txtSoftwareVersion")["value"];
+    var softwarevendor = document.getElementById("txtSoftwareVendor")["value"];
+    var softwaredescription = document.getElementById("txtSoftwareDescription")[
+      "value"
+    ];
+
+    const siteurl =
+      this.context.pageContext.site.absoluteUrl +
+      "/_api/web/lists/getbytitle('Softwarecatalog')/items";
+
+    const itemBody: any = {
+      Title: softwaretitle,
+      SoftwareVendor: softwarevendor,
+      SoftwareDescription: softwaredescription,
+      SoftwareName: softwarename,
+      SoftwareVersion: softwareversion,
+    };
+
+    const spHttpClientOptions: ISPHttpClientOptions = {
+      body: JSON.stringify(itemBody),
+    };
+
+    this.context.spHttpClient
+      .post(siteurl, SPHttpClient.configurations.v1, spHttpClientOptions)
+      .then((response: SPHttpClientResponse) => {
+        if (response.status === 201) {
+          let statusmessage: Element =
+            this.domElement.querySelector("#divStatus");
+          statusmessage.innerHTML = "List Item has been created successfully.";
+          // this.clear();
+        } else {
+          let statusmessage: Element =
+            this.domElement.querySelector("#divStatus");
+          statusmessage.innerHTML =
+            "Am error has occur i.e " +
+            response.status +
+            "-" +
+            response.statusText;
+        }
+      });
   }
 
   private _getEnvironmentMessage(): string {

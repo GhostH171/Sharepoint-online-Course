@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "hello-new-properties-client-side-solution",
+    "id": "4b065503-90eb-4ac1-bc4e-611f594be99e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "HelloNewProperties description"
+      },
+      "longDescription": {
+        "default": "HelloNewProperties description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "hello-new-properties Feature",
+        "description": "The feature that activates elements of the hello-new-properties solution.",
+        "id": "c65a964b-18af-4aea-a755-da1ea9401382",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/hello-new-properties.sppkg"
+  }
+}
