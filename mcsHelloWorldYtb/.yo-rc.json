@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "mcs-hello-world-ytb",
+    "libraryId": "b8361591-5ba0-45b6-bf3b-87b256cb8ceb",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "mcs-hello-world-ytb",
+    "solutionShortDescription": "mcs-hello-world-ytb description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
