@@ -1,60 +1,96 @@
+import { useState, useEffect, FunctionComponent } from "react";
 import * as React from "react";
+import { sp } from "@pnp/sp";
+import "@pnp/sp/webs";
+import "@pnp/sp/lists";
+import "@pnp/sp/items";
+import {
+  Checkbox,
+  Text,
+  IStackTokens,
+  ITheme,
+  Stack,
+} from "office-ui-fabric-react";
+import { IReadonlyTheme } from "@microsoft/sp-component-base";
+import { Placeholder } from "@pnp/spfx-controls-react";
 import styles from "./ListInfo.module.scss";
 import { IListInfoProps } from "./IListInfoProps";
-import { escape } from "@microsoft/sp-lodash-subset";
+import { escape, fromPairs } from "@microsoft/sp-lodash-subset";
 import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
 } from "@microsoft/sp-property-pane";
-import {
-  BasicGroupName,
-  DescriptionFieldLabel,
-  PropertyPaneDescription,
-} from "ListInfoWebPartStrings";
+const ReadReceiptWebpart: FunctionComponent<IListInfoProps> = (props) => {
+  const [showMessage, setShowMessage] = useState<boolean>(true);
+  const { semanticColors }: IReadonlyTheme = props.themeVariant;
 
-export default class ListInfo extends React.Component<IListInfoProps, {}> {
-  private validateDescription(value: string): string {
-    if (value === null || value.trim().length === 0) {
-      return "Provide a description";
+  const fetchData = async () => {
+    const items: any[] = await sp.web.lists
+      .getById(props.storageList)
+      .items.select("Author/ID", "Author/Title", "Author/Name", "Title")
+      .expand("Author")
+      .top(1)
+      .filter(
+        `Author/Title equal '${props.currentUserDisplayName}' and Title equal '${props.documentTitle}'`
+      )
+      .get();
+    if (items.length === 0) {
+      setShowMessage(true);
     }
+  };
 
-    if (value.length > 40) {
-      return "Description should not be longer than 40 characters";
+  useEffect(() => {
+    if (props.storageList && props.storageList != "") {
+      fetchData();
     }
+  }, [props]);
 
-    return "";
+  const _onConfigure = () => {
+    // Context of the web part
+    props.context.propertyPane.open();
+  };
+
+  function _onChange(ev: React.FormEvent<HTMLElement>, isChecked: boolean) {
+    sp.web.lists.getById(props.storageList).items.add({
+      Title: props.documentTitle,
+    });
+    setShowMessage(false);
   }
-  public render(): React.ReactElement<IListInfoProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName,
-    } = this.props;
+  const mainStackTokens: IStackTokens = {
+    childrenGap: 5,
+    padding: 10,
+  };
 
-    return (
-      <section
-        className={`${styles.listInfo} ${hasTeamsContext ? styles.teams : ""}`}
-      >
-        <div className={styles.welcome}>
-          <img
-            alt=""
-            src={
-              isDarkTheme
-                ? require("../assets/welcome-dark.png")
-                : require("../assets/welcome-light.png")
-            }
-            className={styles.welcomeImage}
+  return props.configured ? (
+    <Stack style={{ backgroundColor: semanticColors.bodyBackground }}>
+      {showMessage ? (
+        <Stack
+          style={{ color: semanticColors.bodyText }}
+          tokens={mainStackTokens}
+        >
+          <Text>{props.acknowledgementMessage}</Text>
+          <Text variant="large">'{props.documentTitle}'</Text>
+          <Checkbox
+            theme={props.themeVariant as ITheme}
+            label={props.acknowledgementLabel}
+            onChange={_onChange}
           />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>
-            Web part property value: <strong>{escape(description)}</strong>
-          </div>
-        </div>
-        {<div></div>}
-      </section>
-    );
-  }
-}
+        </Stack>
+      ) : (
+        <Stack style={{ color: semanticColors.bodyText }}>
+          <Text variant="large">{props.documentTitle}</Text>
+          <Text>{props.readMessage}</Text>
+        </Stack>
+      )}
+    </Stack>
+  ) : (
+    <Placeholder
+      iconName="Edit"
+      iconText="Configure Read Receipt"
+      description="Please configure the web part by choosing a list"
+      buttonLabel="Configure"
+      onConfigure={_onConfigure}
+    />
+  );
+};
+export default ReadReceiptWebpart;

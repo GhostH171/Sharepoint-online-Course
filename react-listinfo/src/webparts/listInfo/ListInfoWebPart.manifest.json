@@ -3,6 +3,7 @@
   "id": "04c05e94-1967-4acb-8b62-a62f06dffd0a",
   "alias": "ListInfoWebPart",
   "componentType": "WebPart",
+  "supportsThemeVariants": true,
 
   "version": "*",
   "manifestVersion": 2,
