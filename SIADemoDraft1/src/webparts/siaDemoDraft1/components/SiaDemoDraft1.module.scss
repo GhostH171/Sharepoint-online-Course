@@ -1,0 +1,143 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  width: 90%;
+  padding: 1rem, 0;
+  &-logo {
+    width: 100%;
+    max-width: 150px;
+  }
+  &-header-title {
+    padding: 1rem;
+    background-color: #1e81b0;
+    color: #fff;
+    width: 70%;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.content--title {
+  margin-top: 20px;
+  border: 1px solid black;
+  width: 90%;
+  &-title {
+    padding: 5px;
+    display: flex;
+    &-title__left {
+      font-weight: bold;
+      width: 50%;
+    }
+    &-title__right {
+      background-color: #ffcc66;
+      border: 1px solid black;
+      margin-left: 13rem;
+      color: #fff;
+      width: 10%;
+      float: right;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &-input {
+    padding: 1.5rem;
+    margin: 5px;
+    border: 1px solid blue;
+    height: 4rem;
+  }
+}
+.content--description {
+  border: 1px solid black;
+  width: 90%;
+  &-description {
+    padding: 5px;
+    display: flex;
+    &-description__left {
+      font-weight: bold;
+      width: 50%;
+    }
+    &-description__right {
+      background-color: #ffcc66;
+      border: 1px solid black;
+      margin-left: 13rem;
+      color: #fff;
+      width: 10%;
+      float: right;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &-input {
+    padding: 1.5rem;
+    margin: 5px;
+    border: 1px solid blue;
+    height: 7rem;
+  }
+}
+.content--aircrapt {
+  border: 1px solid black;
+  width: 90%;
+  &-aircrapt {
+    padding: 5px;
+    display: flex;
+    &-aircrapt__left {
+      font-weight: bold;
+      width: 50%;
+    }
+    &-aircrapt__right {
+      background-color: #ffcc66;
+      border: 1px solid black;
+      margin-left: 13rem;
+      color: #fff;
+      width: 10%;
+      float: right;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &-input {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    border: 1px solid blue;
+    height: fit-content;
+  }
+}
+
+.button-row {
+  display: inline-flex;
+  margin: 10px;
+  &-button__normal {
+    margin-right: 15px;
+    width: 6rem;
+    background-color: #1e81b0;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+  }
+  &-button__long {
+    width: fit-content;
+    background-color: #1e81b0;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.button--continued {
+  border: 1px solid black;
+  width: fit-content;
+  text-align: center;
+  background-color: #fff;
+}

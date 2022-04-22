@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "sia-demo-draft-1-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/siaDemoDraft1/SiaDemoDraft1WebPart.js",
+          "manifest": "./src/webparts/siaDemoDraft1/SiaDemoDraft1WebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SiaDemoDraft1WebPartStrings": "lib/webparts/siaDemoDraft1/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}

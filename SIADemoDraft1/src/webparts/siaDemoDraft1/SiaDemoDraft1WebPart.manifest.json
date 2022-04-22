@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "a49c640a-93ec-403b-8f1a-d659c0d3734e",
+  "alias": "SiaDemoDraft1WebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+  "supportedHosts": [
+    "SharePointWebPart",
+    "TeamsPersonalApp",
+    "TeamsTab",
+    "SharePointFullPage"
+  ],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": { "default": "Other" },
+      "title": { "default": "SIADemoDraft1" },
+      "description": { "default": "SIADemoDraft1 description" },
+      "officeFabricIconFontName": "Page",
+      "properties": {
+        "description": "This is des (27) in manifest"
+      }
+    }
+  ]
+}

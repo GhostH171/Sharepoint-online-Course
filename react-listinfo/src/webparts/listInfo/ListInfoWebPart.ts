@@ -50,6 +50,7 @@ export default class ListInfoWebPart extends BaseClientSideWebPart<IListInfoWebP
       this._handleThemeChangedEvent
     );
   }
+
   private _handleThemeChangedEvent(args: ThemeChangedEventArgs): void {
     this._themeVariant = args.theme;
     this.render();

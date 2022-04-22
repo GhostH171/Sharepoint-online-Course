@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sia-demo-draft-1-client-side-solution",
+    "id": "583a371c-c4a0-47ca-add9-658b50fc3328",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "sia-demo-draft-1 description"
+      },
+      "longDescription": {
+        "default": "sia-demo-draft-1 description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "sia-demo-draft-1 Feature",
+        "description": "The feature that activates elements of the sia-demo-draft-1 solution.",
+        "id": "44d86fb1-cea7-4a8f-8a97-1c03bc1b622f",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/sia-demo-draft-1.sppkg"
+  }
+}
