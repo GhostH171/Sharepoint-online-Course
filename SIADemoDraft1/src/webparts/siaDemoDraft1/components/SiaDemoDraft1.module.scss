@@ -42,6 +42,7 @@
       margin-left: 13rem;
       color: #fff;
       width: 10%;
+      height: 1.2rem;
       float: right;
       justify-content: center;
       align-items: center;
@@ -52,6 +53,7 @@
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
+    width: 90%;
     height: 4rem;
   }
 }
@@ -70,6 +72,7 @@
       border: 1px solid black;
       margin-left: 13rem;
       color: #fff;
+      height: 1.2rem;
       width: 10%;
       float: right;
       justify-content: center;
@@ -78,6 +81,7 @@
     }
   }
   &-input {
+    width: 90%;
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
@@ -99,6 +103,7 @@
       border: 1px solid black;
       margin-left: 13rem;
       color: #fff;
+      height: 1.2rem;
       width: 10%;
       float: right;
       justify-content: center;
@@ -140,4 +145,7 @@
   width: fit-content;
   text-align: center;
   background-color: #fff;
+  :hover {
+    cursor: pointer;
+  }
 }

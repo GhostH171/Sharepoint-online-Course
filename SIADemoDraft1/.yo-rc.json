@@ -1,7 +1,7 @@
 {
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
-    "isCreatingSolution": true,
+    "isCreatingSolution": false,
     "version": "1.14.0",
     "libraryName": "sia-demo-draft-1",
     "libraryId": "583a371c-c4a0-47ca-add9-658b50fc3328",

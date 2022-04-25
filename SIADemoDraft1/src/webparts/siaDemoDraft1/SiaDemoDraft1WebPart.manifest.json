@@ -24,7 +24,7 @@
       "description": { "default": "SIADemoDraft1 description" },
       "officeFabricIconFontName": "Page",
       "properties": {
-        "description": "This is des (27) in manifest"
+        "description": ""
       }
     }
   ]

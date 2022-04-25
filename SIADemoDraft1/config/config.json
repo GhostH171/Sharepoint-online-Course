@@ -9,11 +9,21 @@
           "manifest": "./src/webparts/siaDemoDraft1/SiaDemoDraft1WebPart.manifest.json"
         }
       ]
+    },
+
+    "sia-demo-draft-3-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/siaDemoDraft3/SiaDemoDraft3WebPart.js",
+          "manifest": "./src/webparts/siaDemoDraft3/SiaDemoDraft3WebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "SiaDemoDraft1WebPartStrings": "lib/webparts/siaDemoDraft1/loc/{locale}.js",
-    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js",
+    "SiaDemoDraft3WebPartStrings": "lib/webparts/siaDemoDraft3/loc/{locale}.js"
   }
 }
