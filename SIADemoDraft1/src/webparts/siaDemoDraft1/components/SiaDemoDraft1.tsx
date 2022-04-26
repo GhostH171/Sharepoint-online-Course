@@ -3,17 +3,17 @@ import styles from "./SiaDemoDraft1.module.scss";
 import { ISiaDemoDraft1Props } from "./ISiaDemoDraft1Props";
 import { escape } from "@microsoft/sp-lodash-subset";
 import { sp } from "@pnp/sp";
-
+import { FaRegQuestionCircle } from "react-icons/fa";
 const SiaDemoDraft1: React.FC<ISiaDemoDraft1Props> = (props) => {
-  const { description, title } = props;
-  const [titleLength, setTitleLength] = React.useState<number>();
-  const [descriptionLength, setDescriptionTitleLength] =
-    React.useState<number>();
-  const CountCharacter = (e) => {
-    setTitleLength(e.target.value.length);
+  const defaultMaxLength = 200;
+  const [countLength, setCountLength] = React.useState<number>();
+  const CountChar = (e) => {
+    setCountLength(e.target.value.length);
   };
-  const CountDesChar = (e) => {
-    setDescriptionTitleLength(e.target.value.length);
+
+  const [countLengthDes, setCountLengthDes] = React.useState<number>();
+  const CountCharDes = (e) => {
+    setCountLengthDes(e.target.value.length);
   };
 
   return (
@@ -31,22 +31,32 @@ const SiaDemoDraft1: React.FC<ISiaDemoDraft1Props> = (props) => {
       <div className={styles["content--title"]}>
         <div className={styles["content--title-title"]}>
           <div className={styles["content--title-title-title__left"]}>
-            TITLE: *
+            TITLE:
+            <div className={styles["content--title-title-title__left-redstar"]}>
+              *
+            </div>
           </div>
 
-          <div
-            className={styles["content--title-title-title__right"]}
-            id="titleDesCount"
-          >
-            {titleLength}
+          <div className={styles["content--title-title-title__right"]}>
+            <p
+              className={
+                countLength > defaultMaxLength - 1
+                  ? styles["content--title-title-title__right-maxlength"]
+                  : styles["content--title-title-title__right-maxLengthHide"]
+              }
+            >
+              Not over 200 characters
+            </p>
+            <div className={styles["content--title-title-title__right-count"]}>
+              {countLength}
+            </div>
           </div>
         </div>
         <textarea
           className={styles["content--title-input"]}
-          onInput={CountCharacter}
-        >
-          {title}
-        </textarea>
+          onInput={CountChar}
+          maxLength={defaultMaxLength}
+        ></textarea>
       </div>
       <div className={styles["content--description"]}>
         <div className={styles["content--description-description"]}>
@@ -55,27 +65,64 @@ const SiaDemoDraft1: React.FC<ISiaDemoDraft1Props> = (props) => {
               styles["content--description-description-description__left"]
             }
           >
-            DESCRIPTION: *
+            DESCRIPTION:{" "}
+            <div
+              className={
+                styles[
+                  "content--description-description-description__left-redstar"
+                ]
+              }
+            >
+              *
+            </div>
           </div>
           <div
             className={
               styles["content--description-description-description__right"]
             }
           >
-            {descriptionLength}
+            <p
+              className={
+                countLengthDes > defaultMaxLength - 1
+                  ? styles[
+                      "content--description-description-description__right-maxlength"
+                    ]
+                  : styles[
+                      "content--description-description-description__right-maxLengthHide"
+                    ]
+              }
+            >
+              Not over 200 characters
+            </p>
+            <div
+              className={
+                styles[
+                  "content--description-description-description__right-count"
+                ]
+              }
+            >
+              {countLengthDes}
+            </div>
           </div>
         </div>
         <textarea
           className={styles["content--description-input"]}
-          onInput={CountDesChar}
-        >
-          {description}
-        </textarea>
+          onInput={CountCharDes}
+          maxLength={defaultMaxLength}
+        ></textarea>
       </div>
       <div className={styles["content--aircrapt"]}>
         <div className={styles["content--aircrapt-aircrapt"]}>
           <div className={styles["content--aircrapt-aircrapt-aircrapt__left"]}>
-            AIRCRAPT / COMPONENT AFFECTED: *
+            AIRCRAPT / COMPONENT AFFECTED:{" "}
+            <div
+              className={
+                styles["content--aircrapt-aircrapt-aircrapt__left-redstar"]
+              }
+            >
+              *
+            </div>
+            <FaRegQuestionCircle />
           </div>
           <div
             className={styles["content--aircrapt-aircrapt-aircrapt__right"]}

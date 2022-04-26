@@ -5,15 +5,10 @@ import { escape } from "@microsoft/sp-lodash-subset";
 import { sp } from "@pnp/sp";
 
 const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
-  const { description } = props;
-  const [titleLength, setTitleLength] = React.useState<number>();
-  const [descriptionLength, setDescriptionTitleLength] =
-    React.useState<number>();
+  const defaultMaxLength = 200;
+  const [thresholdLength, setThresholdLength] = React.useState<number>();
   const CountCharacter = (e) => {
-    setTitleLength(e.target.value.length);
-  };
-  const CountDesChar = (e) => {
-    setDescriptionTitleLength(e.target.value.length);
+    setThresholdLength(e.target.value.length);
   };
 
   return (
@@ -23,19 +18,44 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
           <div
             className={styles["content--threshold-threshold-threshold__left"]}
           >
-            RECOMMENDED THRESHOLD: *
+            RECOMMENDED THRESHOLD:{" "}
+            <div
+              className={
+                styles["content--threshold-threshold-threshold__left-redstar"]
+              }
+            >
+              *
+            </div>
           </div>
-
           <div
             className={styles["content--threshold-threshold-threshold__right"]}
-            id="titleDesCount"
           >
-            {titleLength}
+            <p
+              className={
+                thresholdLength > defaultMaxLength - 1
+                  ? styles[
+                      "content--threshold-threshold-threshold__right-maxlength"
+                    ]
+                  : styles[
+                      "content--threshold-threshold-threshold__right-maxLengthHide"
+                    ]
+              }
+            >
+              Not over 200 characters
+            </p>
+            <div
+              className={
+                styles["content--threshold-threshold-threshold__right-count"]
+              }
+            >
+              {thresholdLength}
+            </div>
           </div>
         </div>
         <textarea
           className={styles["content--threshold-input"]}
           onInput={CountCharacter}
+          maxLength={defaultMaxLength}
         >
           {}
         </textarea>
@@ -47,72 +67,78 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
               styles["content--information-information-information__left"]
             }
           >
-            COST/WARRANTY INFORMATION: *
+            COST/WARRANTY INFORMATION:{" "}
+            <div
+              className={
+                styles[
+                  "content--information-information-information__left-redstar"
+                ]
+              }
+            >
+              *
+            </div>
           </div>
           <div
             className={
               styles["content--information-information-information__right"]
             }
-          >
-            {descriptionLength}
-          </div>
+          ></div>
         </div>
         <div className={styles["content--information-input"]}>
           <table className={styles["content--information-table"]}>
             <thead className={styles["content--information-thead-light"]}>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Handle</th>
+                <th scope="col">CONFIGURATION</th>
+                <th scope="col">AIRCRAPT</th>
+                <th scope="col">MANHOUR(S)</th>
+                <th scope="col">COST PER MANHOUR</th>
+                <th scope="col">LABOUR COST</th>
+                <th scope="col">MATERIAL COST</th>
+                <th scope="col">TOTAL UNIT COST</th>
+                <th scope="col">TOTAL FLEET COST</th>
+                <th scope="col">EXCHANGE RATE</th>
+                <th scope="col">EXCHANGE RATE</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <td>20</td>
+                <td>5.5</td>
+                <td>73</td>
+                <td>401.50</td>
+                <td>825</td>
+                <td>1226.50</td>
+                <td>24530</td>
+                <td>1.35</td>
+                <td>1.50</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
+                <td>38</td>
+                <td>6</td>
+                <td>73</td>
+                <td>73</td>
+                <td>825</td>
+                <td>47994</td>
+                <td>47994</td>
+                <td>USD</td>
+                <td>EURO</td>
               </tr>
               <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>@ttt</td>
+                <th
+                  scope="row"
+                  className={styles["content--information-table-tdb"]}
+                ></th>
+                <td></td>
+                <td></td>
+                <td>SGD</td>
+                <td>SGD</td>
+                <td>EURO &#62; SGD</td>
+                <td>GRAND TOTAL</td>
+                <td>72524</td>
+                <td>SGD</td>
+                <td></td>
               </tr>
             </tbody>
           </table>
@@ -135,7 +161,7 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
       <div className={styles["content--revision"]}>
         <div className={styles["content--revision-revision"]}>
           <div className={styles["content--revision-revision-revision__left"]}>
-            REASON FOR REVISION: *
+            REASON FOR REVISION:{" "}
           </div>
         </div>
         <textarea
@@ -148,7 +174,12 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
       <div className={styles["content--submit"]}>
         <div className={styles["content--submit-submit"]}>
           <div className={styles["content--submit-submit-submit__left"]}>
-            SUBMITTED BY: *
+            SUBMITTED BY:{" "}
+            <div
+              className={styles["content--submit-submit-submit__left-redstar"]}
+            >
+              *
+            </div>
           </div>
         </div>
         <textarea
