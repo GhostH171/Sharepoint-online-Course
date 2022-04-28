@@ -7,20 +7,17 @@
   align-items: center;
 }
 .header {
-  width: 100%;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
+  width: 90%;
+  padding: 1rem, 0;
   &-logo {
     width: 100%;
     max-width: 150px;
-    margin-right: 25px;
   }
   &-title {
     padding: 1rem;
     background-color: #1e81b0;
     color: #fff;
-    width: 100%;
+    width: 70%;
     float: right;
     justify-content: center;
     align-items: center;
@@ -30,8 +27,7 @@
 .title {
   margin-top: 20px;
   border: 1px solid black;
-  border-bottom: none;
-  width: 100%;
+  width: 90%;
   &-content {
     padding: 5px;
     display: flex;
@@ -79,8 +75,7 @@
 }
 .description {
   border: 1px solid black;
-  border-bottom: none;
-  width: 100%;
+  width: 90%;
   &-content {
     padding: 5px;
     display: flex;
@@ -127,8 +122,7 @@
 }
 .aircrapt {
   border: 1px solid black;
-
-  width: 100%;
+  width: 90%;
   &-content {
     padding: 5px;
     display: flex;
