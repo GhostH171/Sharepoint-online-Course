@@ -7,12 +7,12 @@
   display: flex;
   flex: 1;
   flex-direction: row;
-  &-logo {
+  &Logo {
     width: 100%;
     max-width: 150px;
     margin-right: 25px;
   }
-  &-title {
+  &Title {
     padding: 1rem;
     background-color: #1e81b0;
     color: #fff;
@@ -28,7 +28,7 @@
   width: 100%;
   margin-top: 20px;
   font-weight: bold;
-  &-left {
+  &Left {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
         display: flex;
         flex-direction: row;
         padding: 5px;
-        &-redstar {
+        &Redstar {
           color: red;
         }
       }
@@ -81,7 +81,7 @@
       }
     }
   }
-  &-right {
+  &Right {
     width: 40%;
     display: flex;
     flex-direction: column;

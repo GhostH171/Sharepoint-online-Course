@@ -11,12 +11,12 @@
   display: flex;
   flex: 1;
   flex-direction: row;
-  &-logo {
+  &Logo {
     width: 100%;
     max-width: 150px;
     margin-right: 25px;
   }
-  &-title {
+  &Title {
     padding: 1rem;
     background-color: #1e81b0;
     color: #fff;
@@ -32,19 +32,19 @@
   border: 1px solid black;
   border-bottom: none;
   width: 100%;
-  &-content {
+  &Content {
     padding: 5px;
     display: flex;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
       display: flex;
       flex-direction: row;
-      &-redstar {
+      &Redstar {
         color: red;
       }
     }
-    &-right {
+    &Right {
       display: flex;
       width: 50%;
       height: 1.2rem;
@@ -52,15 +52,15 @@
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      &-maxlength {
+      &Maxlength {
         white-space: nowrap;
         color: red;
         opacity: 100;
       }
-      &-maxLengthHide {
+      &MaxLengthHide {
         opacity: 0;
       }
-      &-count {
+      &Count {
         min-width: 60px;
         height: 1.2rem;
         background-color: #ffcc66;
@@ -69,30 +69,32 @@
       }
     }
   }
-  &-input {
+
+  &Input {
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
     width: 90%;
     height: 4rem;
+    resize: none;
   }
 }
 .description {
   border: 1px solid black;
   border-bottom: none;
   width: 100%;
-  &-content {
+  &Content {
     padding: 5px;
     display: flex;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
       display: flex;
-      &-redstar {
+      &Redstar {
         color: red;
       }
     }
-    &-right {
+    &Right {
       display: flex;
       width: 50%;
       height: 1.2rem;
@@ -100,15 +102,15 @@
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      &-maxlength {
+      &Maxlength {
         white-space: nowrap;
         color: red;
         opacity: 100;
       }
-      &-maxLengthHide {
+      &MaxLengthHide {
         opacity: 0;
       }
-      &-count {
+      &Count {
         min-width: 60px;
         height: 1.2rem;
         background-color: #ffcc66;
@@ -117,31 +119,32 @@
       }
     }
   }
-  &-input {
+  &Input {
     width: 90%;
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
     height: 7rem;
+    resize: none;
   }
 }
 .aircrapt {
   border: 1px solid black;
 
   width: 100%;
-  &-content {
+  &Content {
     padding: 5px;
     display: flex;
     justify-content: space-between;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
       display: flex;
-      &-redstar {
+      &Redstar {
         color: red;
       }
     }
-    &-right {
+    &Right {
       background-color: #ffcc66;
       border: 1px solid black;
       margin-left: 13rem;
@@ -154,19 +157,20 @@
       text-align: center;
     }
   }
-  &-input {
+  &Input {
     display: flex;
     flex-direction: column;
     margin: 5px;
     border: 1px solid blue;
     height: fit-content;
+    resize: none;
   }
 }
 
 .buttons {
   display: inline-flex;
-  margin: 10px;
-  &-normal {
+  margin: 5px;
+  &Normal {
     margin-right: 15px;
     width: 6rem;
     background-color: #1e81b0;
@@ -174,11 +178,182 @@
     text-align: center;
     font-weight: bold;
   }
-  &-long {
+  &Long {
+    margin-top: 0.5rem;
     width: fit-content;
     background-color: #1e81b0;
     color: #fff;
     text-align: center;
     font-weight: bold;
+  }
+}
+// Slide 3
+
+.threshold {
+  border: 1px solid black;
+  border-bottom: none;
+  border-top: none;
+  width: 100%;
+  &Content {
+    padding: 5px;
+    display: flex;
+    &Left {
+      font-weight: bold;
+      width: 50%;
+      display: flex;
+      &Redstar {
+        color: red;
+      }
+    }
+    &Right {
+      display: flex;
+      width: 50%;
+      height: 1.2rem;
+      float: right;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      &Maxlength {
+        white-space: nowrap;
+        color: red;
+        opacity: 100;
+      }
+      &MaxLengthHide {
+        opacity: 0;
+      }
+      &Count {
+        min-width: 60px;
+        height: 1.2rem;
+        background-color: #ffcc66;
+        border: 1px solid black;
+        color: #000;
+      }
+    }
+  }
+  &Input {
+    padding: 1.5rem;
+    margin: 5px;
+    border: 1px solid blue;
+    width: 90%;
+    height: 2.5rem;
+    resize: none;
+  }
+}
+.information {
+  border: 1px solid black;
+  border-bottom: none;
+  width: 100%;
+
+  &Content {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    &Left {
+      font-weight: bold;
+      width: 50%;
+      display: flex;
+      &Redstar {
+        color: red;
+      }
+    }
+    &Right {
+      background-color: #ffcc66;
+      border: 1px solid black;
+      color: #000;
+      height: 1.2rem;
+      min-width: 60px;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &Input {
+    font-family: sans-serif;
+    width: fit-content;
+    padding: 0.7rem;
+    margin: 5px;
+    border: 1px solid blue;
+    height: fit-content;
+    resize: none;
+  }
+  &Table {
+    width: 100%;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    font-weight: bold;
+    font: 0.75em sans-serif;
+    border-spacing: 0;
+    text-align: center;
+    // &Break {
+    //   word-break: break-word;
+    // }
+    th,
+    td {
+      border-right: 1px solid black;
+      border-bottom: 1px solid #000;
+    }
+    &Tdb {
+      border-bottom: 1px solid #000;
+    }
+  }
+  &Threadlight {
+    border: 1px solid black;
+  }
+}
+
+.revision {
+  border: 1px solid black;
+  border-bottom: none;
+  width: 100%;
+  &Content {
+    padding: 5px;
+    display: flex;
+    &Left {
+      font-weight: bold;
+      width: 50%;
+    }
+    &Right {
+      background-color: #ffcc66;
+      border: 1px solid black;
+      margin-left: 13rem;
+      color: #000;
+      width: 10%;
+      height: 1.2rem;
+      float: right;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &Input {
+    padding: 1.5rem;
+    margin: 5px;
+    border: 1px solid blue;
+    width: 90%;
+    height: 2.5rem;
+    resize: none;
+  }
+}
+.submit {
+  border: 1px solid black;
+  width: 100%;
+  &Content {
+    padding: 5px;
+    display: flex;
+    &Left {
+      font-weight: bold;
+      width: 50%;
+      display: flex;
+      &Redstar {
+        color: red;
+      }
+    }
+  }
+  &Input {
+    padding: 1.5rem;
+    margin: 5px;
+    border: 1px solid blue;
+    width: 90%;
+    height: 2.5rem;
+    resize: none;
   }
 }

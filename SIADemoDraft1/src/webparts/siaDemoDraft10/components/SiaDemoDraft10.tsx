@@ -10,18 +10,18 @@ const SiaDemoDraft10: React.FC<ISiaDemoDraft10Props> = (props) => {
         <img
           src={require("../assets/singapore-airlines-logo.jpg")}
           alt=""
-          className={styles["header-logo"]}
+          className={styles["headerLogo"]}
         />
-        <div className={styles["header-title"]}>
+        <div className={styles["headerTitle"]}>
           MODIFICATION BULLET IN APPROVAL
         </div>
       </div>
       <div className={styles["content"]}>
-        <div className={styles["content-left"]}>
+        <div className={styles["contentLeft"]}>
           <div className={styles["schedule"]}>
             <div className={styles["title"]}>
               TO UPLIFT REVISED BASIC WEIGHT SCHEDULE (BWS)
-              <div className={styles["title-redstar"]}>*</div>
+              <div className={styles["titleRedstar"]}>*</div>
             </div>
             <div className={styles["approval"]}>
               <input type="radio" name="approval" />
@@ -48,7 +48,7 @@ const SiaDemoDraft10: React.FC<ISiaDemoDraft10Props> = (props) => {
             <p>___________________</p>
           </div>
         </div>
-        <div className={styles["content-right"]}>
+        <div className={styles["contentRight"]}>
           <div className={styles["titleself"]}>APPPROVED</div>
           <p>
             I HEREBY CERTIFY THAT THE DESIGN OF THIS MODIFICATION COMPLIES WITH

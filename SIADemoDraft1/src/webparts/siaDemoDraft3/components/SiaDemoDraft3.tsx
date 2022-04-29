@@ -14,43 +14,43 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
   return (
     <section className={styles.section}>
       <div className={styles["threshold"]}>
-        <div className={styles["threshold-content"]}>
-          <div className={styles["threshold-content-left"]}>
+        <div className={styles["thresholdContent"]}>
+          <div className={styles["thresholdContentLeft"]}>
             RECOMMENDED THRESHOLD:{" "}
-            <div className={styles["threshold-content-left-redstar"]}>*</div>
+            <div className={styles["thresholdContentLeftRedstar"]}>*</div>
           </div>
-          <div className={styles["threshold-content-right"]}>
+          <div className={styles["thresholdContentRight"]}>
             <p
               className={
                 thresholdLength > defaultMaxLength - 1
-                  ? styles["threshold-content-right-maxlength"]
-                  : styles["threshold-content-right-maxLengthHide"]
+                  ? styles["thresholdContentRightMaxlength"]
+                  : styles["thresholdContentRightMaxLengthHide"]
               }
             >
               Not over 200 characters
             </p>
-            <div className={styles["threshold-content-right-count"]}>
+            <div className={styles["thresholdContentRightCount"]}>
               {thresholdLength}
             </div>
           </div>
         </div>
         <textarea
-          className={styles["threshold-input"]}
+          className={styles["thresholdInput"]}
           onInput={CountCharacter}
           maxLength={defaultMaxLength}
         ></textarea>
       </div>
       <div className={styles["information"]}>
-        <div className={styles["information-content"]}>
-          <div className={styles["information-content-left"]}>
+        <div className={styles["informationContent"]}>
+          <div className={styles["informationContentLeft"]}>
             COST/WARRANTY INFORMATION:{" "}
-            <div className={styles["information-content-left-redstar"]}>*</div>
+            <div className={styles["informationContentLeftRedstar"]}>*</div>
           </div>
-          <div className={styles["information-content-right"]}></div>
+          <div className={styles["informationContentRight"]}></div>
         </div>
-        <div className={styles["information-input"]}>
-          <table className={styles["information-table"]}>
-            <thead className={styles["information-theadlight"]}>
+        <div className={styles["informationInput"]}>
+          <table className={styles["informationTable"]}>
+            <thead className={styles["informationThreadlight"]}>
               <tr>
                 <th scope="col">CONFIGURATION</th>
                 <th scope="col">AIRCRAPT</th>
@@ -90,10 +90,7 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
                 <td>EURO</td>
               </tr>
               <tr>
-                <th
-                  scope="row"
-                  className={styles["information-table-tdb"]}
-                ></th>
+                <th scope="row" className={styles["informationTableTdb"]}></th>
                 <td></td>
                 <td></td>
                 <td>SGD</td>
@@ -110,37 +107,37 @@ const SiaDemoDraft3: React.FC<ISiaDemoDraft3Props> = (props) => {
             <input
               type="button"
               value="Configuration 1: .................. "
-              className={styles["button-button__long"]}
+              className={styles["buttonButtonLong"]}
             />
           </div>
           <div>
             <input
               type="button"
               value="Configuration 1: .................. "
-              className={styles["button-button__long"]}
+              className={styles["buttonButtonLong"]}
             />
           </div>
         </div>
       </div>
       <div className={styles["revision"]}>
-        <div className={styles["revision-content"]}>
-          <div className={styles["revision-content-left"]}>
+        <div className={styles["revisionContent"]}>
+          <div className={styles["revisionContentLeft"]}>
             REASON FOR REVISION:{" "}
           </div>
         </div>
-        <textarea className={styles["revision-input"]} onInput={CountCharacter}>
+        <textarea className={styles["revisionInput"]} onInput={CountCharacter}>
           {}
         </textarea>
       </div>
       <div className={styles["submit"]}>
-        <div className={styles["submit-content"]}>
-          <div className={styles["submit-content-left"]}>
+        <div className={styles["submitContent"]}>
+          <div className={styles["submitContentLeft"]}>
             SUBMITTED BY:{" "}
-            <div className={styles["submit-content-left-redstar"]}>*</div>
+            <div className={styles["submitContentLeftRedstar"]}>*</div>
           </div>
         </div>
         <textarea
-          className={styles["submit-input"]}
+          className={styles["submitInput"]}
           onInput={CountCharacter}
         ></textarea>
       </div>

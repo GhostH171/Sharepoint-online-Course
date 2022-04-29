@@ -16,19 +16,19 @@ $color-form-highlight: #56c596;
 .threshold {
   margin-top: 20px;
   border: 1px solid black;
-  width: 90%;
-  &-content {
+  width: 100%;
+  &Content {
     padding: 5px;
     display: flex;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
       display: flex;
-      &-redstar {
+      &Redstar {
         color: red;
       }
     }
-    &-right {
+    &Right {
       display: flex;
       width: 50%;
       height: 1.2rem;
@@ -36,15 +36,15 @@ $color-form-highlight: #56c596;
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      &-maxlength {
+      &Maxlength {
         white-space: nowrap;
         color: red;
         opacity: 100;
       }
-      &-maxLengthHide {
+      &MaxLengthHide {
         opacity: 0;
       }
-      &-count {
+      &Count {
         min-width: 60px;
         height: 1.2rem;
         background-color: #ffcc66;
@@ -53,7 +53,7 @@ $color-form-highlight: #56c596;
       }
     }
   }
-  &-input {
+  &Input {
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
@@ -63,21 +63,21 @@ $color-form-highlight: #56c596;
 }
 .information {
   border: 1px solid black;
-  width: 90%;
+  width: 100%;
 
-  &-content {
+  &Content {
     padding: 5px;
     display: flex;
     justify-content: space-between;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
       display: flex;
-      &-redstar {
+      &Redstar {
         color: red;
       }
     }
-    &-right {
+    &Right {
       background-color: #ffcc66;
       border: 1px solid black;
       color: #000;
@@ -87,7 +87,7 @@ $color-form-highlight: #56c596;
       text-align: center;
     }
   }
-  &-input {
+  &Input {
     font-family: sans-serif;
     width: fit-content;
     padding: 0.7rem;
@@ -95,7 +95,7 @@ $color-form-highlight: #56c596;
     border: 1px solid blue;
     height: fit-content;
   }
-  &-table {
+  &Table {
     width: 100%;
     border-top: 1px solid black;
     border-left: 1px solid black;
@@ -103,34 +103,34 @@ $color-form-highlight: #56c596;
     font: 0.75em sans-serif;
     border-spacing: 0;
     text-align: center;
-    &-break {
-      word-break: break-word;
-    }
+    // &Break {
+    //   word-break: break-word;
+    // }
     th,
     td {
       border-right: 1px solid black;
       border-bottom: 1px solid #000;
     }
-    &-tdb {
+    &Tdb {
       border-bottom: 1px solid #000;
     }
   }
-  &-threadlight {
+  &Threadlight {
     border: 1px solid black;
   }
 }
 
 .revision {
   border: 1px solid black;
-  width: 90%;
-  &-content {
+  width: 100%;
+  &Content {
     padding: 5px;
     display: flex;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
     }
-    &-right {
+    &Right {
       background-color: #ffcc66;
       border: 1px solid black;
       margin-left: 13rem;
@@ -143,7 +143,7 @@ $color-form-highlight: #56c596;
       text-align: center;
     }
   }
-  &-input {
+  &Input {
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
@@ -153,20 +153,20 @@ $color-form-highlight: #56c596;
 }
 .submit {
   border: 1px solid black;
-  width: 90%;
-  &-content {
+  width: 100%;
+  &Content {
     padding: 5px;
     display: flex;
-    &-left {
+    &Left {
       font-weight: bold;
       width: 50%;
       display: flex;
-      &-redstar {
+      &Redstar {
         color: red;
       }
     }
   }
-  &-input {
+  &Input {
     padding: 1.5rem;
     margin: 5px;
     border: 1px solid blue;
@@ -177,7 +177,7 @@ $color-form-highlight: #56c596;
 .button {
   display: flex;
   flex-direction: column;
-  &-button__long {
+  &Long {
     margin-top: 1rem;
     width: fit-content;
     background-color: #1e81b0;

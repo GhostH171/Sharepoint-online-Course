@@ -8,12 +8,12 @@
   display: flex;
   flex: 1;
   flex-direction: row;
-  &-logo {
+  &Logo {
     width: 100%;
     max-width: 150px;
     margin-right: 25px;
   }
-  &-title {
+  &Title {
     padding: 1rem;
     background-color: #1e81b0;
     color: #fff;
@@ -29,7 +29,7 @@
   width: 100%;
   margin-top: 20px;
   font-weight: bold;
-  &-left {
+  &Left {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -52,11 +52,58 @@
       padding: 5px;
     }
     .remarks {
+      border-bottom: var(--border);
       height: 200px;
       padding: 5px;
     }
+    .schedule {
+      height: 150px;
+      padding: 5px;
+      .titleSchedule {
+        display: flex;
+        flex-direction: row;
+
+        &Redstar {
+          color: red;
+        }
+      }
+      .approval {
+        margin: 15px;
+        width: 50%;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+      }
+      .notification {
+        font-weight: normal;
+        font-style: italic;
+        color: #9c9998;
+        padding: 5px;
+      }
+    }
+
+    .classified {
+      height: 150px;
+      border-top: var(--border);
+      padding: 5px;
+      .titleClassified {
+        display: flex;
+        flex-direction: row;
+      }
+      .approval {
+        margin: 15px;
+        width: 50%;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+      }
+      .ama {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
-  &-right {
+  &Right {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -67,7 +114,7 @@
       height: 150px;
       display: flex;
 
-      &-left {
+      &Left {
         width: 70%;
         display: flex;
         flex-direction: column;
@@ -84,7 +131,7 @@
           // border-bottom: var(--border);
         }
       }
-      &-right {
+      &Right {
         text-align: center;
         padding: 5px;
       }
@@ -94,12 +141,12 @@
       flex-direction: row;
       border-bottom: var(--border);
       height: 100px;
-      &-left {
+      &Left {
         width: 50%;
         padding: 5px;
         border-right: var(--border);
       }
-      &-right {
+      &Right {
         padding: 5px;
       }
     }
@@ -108,18 +155,18 @@
       flex-direction: row;
       border-bottom: var(--border);
       height: 150px;
-      &-left {
+      &Left {
         width: 50%;
-        &-air {
+        &Air {
           display: flex;
           flex-direction: row;
           padding: 5px;
         }
-        &-regis {
+        &Regis {
           padding: 5px;
         }
       }
-      &-right {
+      &Right {
         padding: 5px;
       }
     }
@@ -129,8 +176,21 @@
       padding: 5px;
     }
     .componentpartno {
+      border-bottom: var(--border);
       height: 150px;
       padding: 5px;
+    }
+    .titleself {
+      align-self: center;
+      text-align: center;
+      width: 150px;
+    }
+    .paragraph {
+      padding: 7px;
+    }
+    .solidCenter {
+      align-self: center;
+      text-align: center;
     }
   }
 }
@@ -141,4 +201,13 @@
   text-align: center;
   font-weight: bold;
   border-radius: 5px;
+}
+.bottomtitle {
+  display: flex;
+  flex-direction: row;
+  margin-top: 150px;
+  width: 100%;
+  border-bottom: 0px;
+  justify-content: space-between;
+  font-weight: bold;
 }
