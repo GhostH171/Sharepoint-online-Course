@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": false,
+    "version": "1.14.0",
+    "libraryName": "sia-demo-draft-1",
+    "libraryId": "583a371c-c4a0-47ca-add9-658b50fc3328",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "sia-demo-draft-1",
+    "solutionShortDescription": "sia-demo-draft-1 description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

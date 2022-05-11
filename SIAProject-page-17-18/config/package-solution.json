@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "edma-form-2-client-side-solution",
+    "id": "44cba93b-3859-477c-94df-4fc2d0f063c9",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "EDMAForm2 description"
+      },
+      "longDescription": {
+        "default": "EDMAForm2 description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "edma-form-2 Feature",
+        "description": "The feature that activates elements of the edma-form-2 solution.",
+        "id": "4c9f01f2-2302-4975-8e54-6ec13e1448a1",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/edma-form-2.sppkg"
+  }
+}

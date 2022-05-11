@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "edma-form-2-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/edmaForm2/EdmaForm2WebPart.js",
+          "manifest": "./src/webparts/edmaForm2/EdmaForm2WebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EdmaForm2WebPartStrings": "lib/webparts/edmaForm2/loc/{locale}.js"
+  }
+}

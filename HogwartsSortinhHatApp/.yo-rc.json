@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "hogwarts-sortinh-hat-app",
+    "libraryId": "d45ffd87-a705-4971-a6df-5e83bf7e320a",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "hogwarts-sortinh-hat-app",
+    "solutionShortDescription": "hogwarts-sortinh-hat-app description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

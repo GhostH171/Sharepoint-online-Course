@@ -1,0 +1,36 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.container {
+  position: relative;
+
+  height: 12rem;
+  width: 100%;
+
+  background-image: url("http://media.hanoitv.vn/files/kimthanh/2021-06-21/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-06-21%20200416.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .infor {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+  .displayHouse {
+    margin-right: 30px;
+  }
+  .btnSort {
+  }
+}

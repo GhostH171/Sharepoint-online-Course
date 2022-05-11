@@ -1,0 +1,144 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.container {
+  text-decoration: none;
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .title {
+      width: 400px;
+    }
+    .board {
+      font-size: 16px;
+      table,
+      th,
+      td {
+        width: 12rem;
+        height: 2.5rem;
+        border: 1px solid;
+        border-collapse: collapse;
+        text-align: left;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.mainForm {
+  width: 100%;
+  border: 2px solid black;
+}
+.maf {
+  margin-top: 15px;
+  .title {
+    background-color: rgb(211, 205, 205);
+  }
+  .selectedcell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  table,
+  th {
+    width: 25%;
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+  td {
+    height: 2.5rem;
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+  }
+}
+.mainboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+}
+.leftboard {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  text-transform: uppercase;
+
+  .bottomleft {
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    font-size: 11px;
+  }
+}
+.maincontent {
+  border-bottom: 2px solid black;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px;
+}
+.midboard {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  border-right: 2px solid black;
+  text-transform: uppercase;
+}
+.rightboard {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  border-right: 2px solid black;
+  text-transform: uppercase;
+}
+
+.mpcc {
+  text-align: center;
+  background-color: aqua;
+  font-weight: bold;
+  border: 2px solid black;
+}
+.btngreen {
+  min-width: 95%;
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 5px;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 11px;
+  margin: 5px;
+}
+.btnred {
+  background-color: white;
+  width: fit-content;
+  border: 2px solid red;
+  border-radius: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.selectyes {
+  border: 2px solid red;
+  border-radius: 4px;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.selectno {
+  border: 2px solid green;
+  border-radius: 4px;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+}

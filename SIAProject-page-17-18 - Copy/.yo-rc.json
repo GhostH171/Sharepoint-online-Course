@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "edma-form-2",
+    "libraryId": "44cba93b-3859-477c-94df-4fc2d0f063c9",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "EDMAForm2",
+    "solutionShortDescription": "EDMAForm2 description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

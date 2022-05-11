@@ -1,0 +1,106 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+:root {
+  --border: 1px solid black;
+}
+.header {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  &Logo {
+    width: 100%;
+    max-width: 150px;
+    margin-right: 25px;
+  }
+  &Title {
+    padding: 1rem;
+    background-color: #1e81b0;
+    color: #fff;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 20px;
+  font-weight: bold;
+  &Left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    margin-right: 15px;
+    .schedule {
+      height: 150px;
+      .title {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+        &Redstar {
+          color: red;
+        }
+      }
+      .approval {
+        margin: 15px;
+        width: 50%;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+      }
+      .notification {
+        font-weight: normal;
+        font-style: italic;
+        color: #9c9998;
+        padding: 5px;
+      }
+    }
+
+    .classified {
+      height: 250px;
+      border-top: var(--border);
+      padding: 5px;
+      .title {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+      }
+      .approval {
+        margin: 15px;
+        width: 50%;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+      }
+      .ama {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  &Right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    padding: 5px;
+    font: bold;
+    .titleself {
+      align-self: center;
+      text-align: center;
+      width: 150px;
+    }
+  }
+}
+.bottomtitle {
+  display: flex;
+  flex-direction: row;
+  margin-top: 150px;
+  width: 100%;
+  border-bottom: 0px;
+  justify-content: space-between;
+  font-weight: bold;
+}

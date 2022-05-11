@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "hogwarts-sortinh-hat-app-client-side-solution",
+    "id": "d45ffd87-a705-4971-a6df-5e83bf7e320a",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "hogwarts-sortinh-hat-app description"
+      },
+      "longDescription": {
+        "default": "hogwarts-sortinh-hat-app description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "hogwarts-sortinh-hat-app Feature",
+        "description": "The feature that activates elements of the hogwarts-sortinh-hat-app solution.",
+        "id": "70da89c7-c7d9-4c0b-809a-cfa8152dc92c",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/hogwarts-sortinh-hat-app.sppkg"
+  }
+}
