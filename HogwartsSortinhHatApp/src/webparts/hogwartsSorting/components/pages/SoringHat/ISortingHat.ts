@@ -1,1 +1,3 @@
-export interface ISortingHatProps {}
+export interface ISortingHatProps {
+  userInfor: any;
+}

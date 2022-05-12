@@ -3,13 +3,13 @@ import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
   PropertyPaneCheckbox,
-  PropertyPaneLabel,
-  PropertyPaneLink,
-  PropertyPaneSlider,
   PropertyPaneToggle,
   PropertyPaneDropdown,
 } from "@microsoft/sp-property-pane";
-import { BaseClientSideWebPart,IWebPartPropertiesMetadata } from "@microsoft/sp-webpart-base";
+import {
+  BaseClientSideWebPart,
+  IWebPartPropertiesMetadata,
+} from "@microsoft/sp-webpart-base";
 import { IReadonlyTheme } from "@microsoft/sp-component-base";
 import { escape } from "@microsoft/sp-lodash-subset";
 

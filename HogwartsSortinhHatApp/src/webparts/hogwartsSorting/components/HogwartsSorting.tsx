@@ -1,16 +1,21 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
-import styles from "./HogwartsSorting.module.scss";
 import { IHogwartsSortingProps } from "./IHogwartsSortingProps";
-import { escape } from "@microsoft/sp-lodash-subset";
-import SortingHat from "./pages/SoringHat/SortingHat";
 import Header from "./pages/Header/Header";
+import SortingHat from "./pages/SoringHat/SortingHat";
 
-const HogwartsSorting: FunctionComponent<IHogwartsSortingProps> = (props) => {
+const HogwartsSorting: FunctionComponent<IHogwartsSortingProps> = ({
+  userInfor,
+}) => {
+  // props.user
+
+  console.log(userInfor);
+
   return (
     <div>
-      <Header />
-      <SortingHat />
+      <Header userInfor={userInfor} />
+
+      <SortingHat userInfor={userInfor} />
     </div>
   );
 };

@@ -1,1 +1,3 @@
-export interface IHeaderProps {}
+export interface IHeaderProps {
+  userInfor: any;
+}

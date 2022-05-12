@@ -1,11 +1,10 @@
 @import "~office-ui-fabric-react/dist/sass/References.scss";
+@import "http://fonts.cdnfonts.com/css/halloween-spooky";
 
 .container {
   position: relative;
-
   height: 12rem;
   width: 100%;
-
   background-image: url("http://media.hanoitv.vn/files/kimthanh/2021-06-21/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-06-21%20200416.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -24,13 +23,34 @@
   .infor {
     display: flex;
     flex-direction: column;
+    font-family: "Halloween Spooky", sans-serif;
     color: white;
     font-weight: bold;
     padding-left: 10px;
   }
-  .displayHouse {
-    margin-right: 30px;
+  .middleInfor {
+    display: flex;
+    flex-direction: column;
+    max-width: 35%;
+    font-family: "Halloween Spooky", sans-serif;
+    color: antiquewhite;
+    justify-content: center;
+    align-items: center;
   }
   .btnSort {
+    background-color: #787ff6;
+    border-radius: 10px;
+    width: 150px;
+    font-family: "Halloween Spooky", sans-serif;
+    color: aliceblue;
+    min-height: 25%;
+    margin-top: 15px;
+  }
+  .btnSort:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  .displayHouse {
+    margin-right: 30px;
   }
 }
