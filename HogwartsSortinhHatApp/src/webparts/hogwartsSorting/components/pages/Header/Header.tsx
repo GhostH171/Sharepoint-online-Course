@@ -3,14 +3,13 @@ import { FunctionComponent } from "react";
 import { IHeaderProps } from "./IHeader";
 import styles from "./Header.module.scss";
 import * as dayjs from "dayjs";
-<link
-  href="http://fonts.cdnfonts.com/css/halloween-spooky"
-  rel="stylesheet"
-></link>;
+import { SPOpertations } from "../../Services/SPServices";
 
-interface IUserInfor {
-  name: string;
-}
+<link href="http://fonts.cdnfonts.com/css/halloween-spooky" rel="stylesheet" />;
+
+// interface IUserInfor {
+//   name: string;
+// }
 
 const Header: FunctionComponent<IHeaderProps> = (props) => {
   const [houseName, setHouseName] = React.useState(
@@ -20,11 +19,6 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
     "https://64.media.tumblr.com/2e724263042763c8a572f6a9bc16e40c/tumblr_inline_p07sdaHu8S1uniz1z_540.png"
   );
   const [text, setText] = React.useState("Sort");
-  React.useEffect(() => {
-    fetch(
-      "https://5jvv0n.sharepoint.com/_api/SP.UserProfiles.PeopleManager/GetMyProperties"
-    ).then((res) => console.log(res));
-  }, []);
 
   function randomHouses() {
     const houses = ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"];
@@ -33,7 +27,11 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
   }
 
   const onSortHandler = () => {
-    setHouseName(randomHouses());
+    const houseName = randomHouses();
+
+    setHouseName(houseName);
+
+    SPOpertations.CreateListItem(props.context, houseName);
   };
 
   React.useEffect(() => {
@@ -73,6 +71,7 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
       setText("Sort Again");
     }
   });
+
   return (
     <div className={styles.container}>
       <div className={styles.display}>

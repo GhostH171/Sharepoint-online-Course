@@ -6,16 +6,16 @@ import SortingHat from "./pages/SoringHat/SortingHat";
 
 const HogwartsSorting: FunctionComponent<IHogwartsSortingProps> = ({
   userInfor,
+  tabularData,
+  context,
 }) => {
   // props.user
 
-  console.log(userInfor);
-
   return (
     <div>
-      <Header userInfor={userInfor} />
+      <Header userInfor={userInfor} context={context} />
 
-      <SortingHat userInfor={userInfor} />
+      <SortingHat tabularData={tabularData} userInfor={userInfor} />
     </div>
   );
 };
