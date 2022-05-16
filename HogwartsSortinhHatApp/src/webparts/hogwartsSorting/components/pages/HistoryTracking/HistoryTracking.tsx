@@ -1,16 +1,16 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
-import { ISortingHatProps } from "./ISortingHat";
-import styles from "./SortingHat.module.scss";
+import { IHistoryTrackingProps } from "./IHistoryTracking";
+import styles from "./HistoryTracking.module.scss";
 import * as dayjs from "dayjs";
 
 export interface IHogwartsSortingWebPartProps {
   description: string;
 }
-const SortingHat: FunctionComponent<ISortingHatProps> = (props) => {
+const HistoryTracking: FunctionComponent<IHistoryTrackingProps> = (props) => {
   return (
     <div className={styles.content}>
-      List of Name and House
+      History Change House
       <table>
         <thead>
           <tr>
@@ -35,4 +35,4 @@ const SortingHat: FunctionComponent<ISortingHatProps> = (props) => {
   );
 };
 
-export default SortingHat;
+export default HistoryTracking;

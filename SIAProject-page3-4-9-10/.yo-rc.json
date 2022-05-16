@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "sia-project-page-3-4-9-10",
+    "libraryId": "d522a16d-12cd-40bf-90f8-7853d9f0dc8c",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "sia-project-page-3-4-9-10",
+    "solutionShortDescription": "sia-project-page-3-4-9-10 description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

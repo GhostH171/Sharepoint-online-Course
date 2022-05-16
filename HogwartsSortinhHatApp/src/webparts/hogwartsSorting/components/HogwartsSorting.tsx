@@ -2,6 +2,7 @@ import * as React from "react";
 import { FunctionComponent } from "react";
 import { IHogwartsSortingProps } from "./IHogwartsSortingProps";
 import Header from "./pages/Header/Header";
+import HistoryTracking from "./pages/HistoryTracking/HistoryTracking";
 import SortingHat from "./pages/SoringHat/SortingHat";
 
 const HogwartsSorting: FunctionComponent<IHogwartsSortingProps> = ({
@@ -16,6 +17,8 @@ const HogwartsSorting: FunctionComponent<IHogwartsSortingProps> = ({
       <Header userInfor={userInfor} context={context} />
 
       <SortingHat tabularData={tabularData} userInfor={userInfor} />
+
+      <HistoryTracking tabularData={tabularData} userInfor={userInfor} />
     </div>
   );
 };

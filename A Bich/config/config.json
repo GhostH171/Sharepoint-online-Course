@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "history-tracking-wp-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/historyTrackingWp/HistoryTrackingWpWebPart.js",
+          "manifest": "./src/webparts/historyTrackingWp/HistoryTrackingWpWebPart.manifest.json"
+        }
+      ]
+    },
+    "user-tracking-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/userTracking/UserTrackingWebPart.js",
+          "manifest": "./src/webparts/userTracking/UserTrackingWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "HistoryTrackingWpWebPartStrings": "lib/webparts/historyTrackingWp/loc/{locale}.js",
+    "UserTrackingWebPartStrings": "lib/webparts/userTracking/loc/{locale}.js"
+  }
+}

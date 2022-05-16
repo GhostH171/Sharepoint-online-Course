@@ -7,10 +7,6 @@ import { SPOpertations } from "../../Services/SPServices";
 
 <link href="http://fonts.cdnfonts.com/css/halloween-spooky" rel="stylesheet" />;
 
-// interface IUserInfor {
-//   name: string;
-// }
-
 const Header: FunctionComponent<IHeaderProps> = (props) => {
   const [houseName, setHouseName] = React.useState(
     "It is our choices that show what we truly are, far more than our abilities"
@@ -20,6 +16,20 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
   );
   const [text, setText] = React.useState("Sort");
 
+  const [currentDate, setCurrentDate] = React.useState(
+    dayjs().format(`YYYY-MM-DD HH:mm:ss`)
+  );
+
+  React.useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDate(dayjs().format(`YYYY-MM-DD HH:mm:ss`));
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   function randomHouses() {
     const houses = ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"];
     const random = Math.floor(Math.random() * houses.length);
@@ -28,10 +38,10 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
 
   const onSortHandler = () => {
     const houseName = randomHouses();
-
+    const fullName = props.userInfor.DisplayName;
     setHouseName(houseName);
 
-    SPOpertations.CreateListItem(props.context, houseName);
+    SPOpertations.CreateListItem(props.context, houseName, fullName);
   };
 
   React.useEffect(() => {
@@ -72,15 +82,17 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
     }
   });
 
+  React.useEffect(() => {}, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.display}>
         <div className={styles.infor}>
-          <h1 style={{ fontSize: "25px" }}>{props.userInfor.DisplayName}</h1>
+          <h2>{props.userInfor.DisplayName}</h2>
           <span style={{ marginBottom: "10px" }}>
             Email: {props.userInfor.Email}
           </span>
-          <span>Date: {dayjs().format("YYYY-MM-DD HH:mm:ss")}</span>
+          <span>Date: {currentDate}</span>
         </div>
         <div className={styles.middleInfor}>
           <h2>{houseName}</h2>
