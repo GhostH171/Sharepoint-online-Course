@@ -43,6 +43,7 @@ export default class HogwartsSortingWebPart extends BaseClientSideWebPart<IHogwa
         });
       });
   }
+  private getHouse() {}
 
   public render(): void {
     this.getCurrrentProfile();

@@ -6,60 +6,6 @@
   justify-content: center;
   align-items: center;
 }
-.header {
-  width: 100%;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  .HeaderLogo {
-    width: 100%;
-    max-width: 150px;
-    margin-right: 25px;
-  }
-  .HeaderTitle {
-    padding: 1rem;
-    background-color: #1e81b0;
-    color: #fff;
-    width: 100%;
-    float: right;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-}
-.title {
-  margin-top: 20px;
-  border: 1px solid black;
-  border-bottom: none;
-  width: 100%;
-  .TitleContent {
-    padding: 5px;
-    display: flex;
-    .TitleLeft {
-      font-weight: bold;
-      width: 50%;
-      display: flex;
-      flex-direction: row;
-    }
-    .TitleRight {
-      display: flex;
-      width: 50%;
-      height: 1.2rem;
-      float: right;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-    }
-  }
-
-  .TitleInput {
-    padding: 1.5rem;
-    border: 1px solid blue;
-    width: 100%;
-    height: 4rem;
-    resize: none;
-  }
-}
 .Redstar {
   color: red;
 }
@@ -71,71 +17,7 @@
   border: 1px solid black;
   color: #000;
 }
-.description {
-  border: 1px solid black;
-  border-bottom: none;
-  width: 100%;
-  .DesContent {
-    padding: 5px;
-    display: flex;
-    .DesLeft {
-      font-weight: bold;
-      width: 50%;
-      display: flex;
-    }
-    .DesRight {
-      display: flex;
-      width: 50%;
-      height: 1.2rem;
-      float: right;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-    }
-  }
-  .DesInput {
-    width: 100%;
-    padding: 1.5rem;
-    border: 1px solid blue;
-    height: 7rem;
-    resize: none;
-  }
-}
-.aircrapt {
-  border: 1px solid black;
 
-  width: 100%;
-  .AircraptContent {
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    .AircraptLeft {
-      font-weight: bold;
-      width: 50%;
-      display: flex;
-    }
-    .AircraptRight {
-      background-color: #ffcc66;
-      border: 1px solid black;
-      margin-left: 13rem;
-      color: #000;
-      height: 1.2rem;
-      width: 10%;
-      float: right;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-  }
-  .AircraptInput {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    border: 1px solid blue;
-    height: fit-content;
-    resize: none;
-  }
-}
 .Maxlength {
   white-space: nowrap;
   color: red;

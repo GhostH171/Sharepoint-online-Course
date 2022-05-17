@@ -1,9 +1,9 @@
 import * as React from "react";
-import styles from "./Page910.module.scss";
-import { IPage910Props } from "./IPage910Props";
+import styles from "./Page10.module.scss";
+import { IPage10Props } from "./IPage10Props";
 import { FaRegQuestionCircle } from "react-icons/fa";
 
-const SiaDemoDraft9: React.FC<IPage910Props> = (props) => {
+const Page10: React.FC<IPage10Props> = (props) => {
   return (
     <section>
       <div className={styles.header}>
@@ -18,10 +18,6 @@ const SiaDemoDraft9: React.FC<IPage910Props> = (props) => {
       </div>
       <div className={styles.content}>
         <div className={styles.contentLeft}>
-          <div className={styles.title}>TITLE</div>
-          <div className={styles.description}>DESCRIPTION</div>
-          <div className={styles.modification}>REASON FOR MODIFICATION</div>
-          <div className={styles.remarks}>REASON FOR REVISION/REMARKS</div>
           <div className={styles.schedule}>
             <div className={styles.titleSchedule}>
               TO UPLIFT REVISED BASIC WEIGHT SCHEDULE (BWS)
@@ -53,53 +49,6 @@ const SiaDemoDraft9: React.FC<IPage910Props> = (props) => {
           </div>
         </div>
         <div className={styles.contentRight}>
-          <div className={styles.mra}>
-            <div className={styles.mraLeft}>
-              <div className={styles.mdn}>Mod Doc No.:_____________</div>
-              <div className={styles.revision}>Revision:_____________</div>
-            </div>
-            <div className={styles.mraRight}>
-              <p>ATA</p>
-            </div>
-          </div>
-          <div className={styles.ae}>
-            <div className={styles.aeLeft}>
-              AIRCRAFT TYPE
-              <input type="button" value="A350-900" className={styles.button} />
-            </div>
-
-            <div className={styles.aeRight}>
-              ENGINE TYPE
-              <input
-                type="button"
-                value="TRENT XWB"
-                className={styles.button}
-              />
-            </div>
-          </div>
-          <div className={styles.aircrapt}>
-            <div className={styles.aircraptLeft}>
-              <div className={styles.aircraptAir}>
-                AIRCRAFT <FaRegQuestionCircle />
-                <input type="radio" name="approve"></input>
-              </div>
-              <div className={styles.aircraptRegis}>
-                REGISTRATION
-                <input
-                  type="button"
-                  value="A350 ALL"
-                  className={styles.button}
-                />
-              </div>{" "}
-            </div>
-            <div className={styles.aircraptRight}>
-              ENGINE SN
-              <input type="radio" name="approve"></input>
-            </div>
-          </div>
-          <div className={styles.component}>COMPONENT</div>
-          <div className={styles.componentpartno}>COMPONENT PART NO</div>
-
           <div className={styles.titleself}>APPPROVED</div>
           <p className={styles.paragraph}>
             I HEREBY CERTIFY THAT THE DESIGN OF THIS MODIFICATION COMPLIES WITH
@@ -122,4 +71,4 @@ const SiaDemoDraft9: React.FC<IPage910Props> = (props) => {
     </section>
   );
 };
-export default SiaDemoDraft9;
+export default Page10;

@@ -20,15 +20,18 @@ const HistoryTracking: FunctionComponent<IHistoryTrackingProps> = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.tabularData.value.map((witch) => {
-            return (
-              <tr>
-                <td>{witch.FullName}</td>
-                <td>{witch.House}</td>
-                <td>{dayjs(witch.Dateandtime).format("YYYY-MM-DD")}</td>
-              </tr>
-            );
-          })}
+          {!props.tabularData?.length && <div>No data</div>}
+
+          {props.tabularData &&
+            props.tabularData?.map((witch) => {
+              return (
+                <tr>
+                  <td>{witch.FullName}</td>
+                  <td>{witch.House}</td>
+                  <td>{dayjs(witch.Dateandtime).format("YYYY-MM-DD")}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>

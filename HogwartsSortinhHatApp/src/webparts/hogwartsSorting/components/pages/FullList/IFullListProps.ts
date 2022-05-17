@@ -1,4 +1,4 @@
-export interface IHistoryTrackingProps {
+export interface IFullListProps {
   userInfor: any;
   tabularData: {
     FullName: string;

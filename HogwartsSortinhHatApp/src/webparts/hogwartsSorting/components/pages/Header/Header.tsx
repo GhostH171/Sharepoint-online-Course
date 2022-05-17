@@ -7,10 +7,10 @@ import { SPOpertations } from "../../Services/SPServices";
 
 <link href="http://fonts.cdnfonts.com/css/halloween-spooky" rel="stylesheet" />;
 
+const spOperations = new SPOpertations();
+
 const Header: FunctionComponent<IHeaderProps> = (props) => {
-  const [houseName, setHouseName] = React.useState(
-    "It is our choices that show what we truly are, far more than our abilities"
-  );
+  const [houseName, setHouseName] = React.useState("Click to enter a house");
   const [houseImage, setHouseImage] = React.useState(
     "https://64.media.tumblr.com/2e724263042763c8a572f6a9bc16e40c/tumblr_inline_p07sdaHu8S1uniz1z_540.png"
   );
@@ -24,7 +24,6 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
     const intervalId = setInterval(() => {
       setCurrentDate(dayjs().format(`YYYY-MM-DD HH:mm:ss`));
     }, 1000);
-
     return () => {
       clearInterval(intervalId);
     };
@@ -41,7 +40,13 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
     const fullName = props.userInfor.DisplayName;
     setHouseName(houseName);
 
+    spOperations.GetHouseList(props.context, houseName).then((res) => {
+      props.setHouseData(res.value);
+    });
     SPOpertations.CreateListItem(props.context, houseName, fullName);
+    spOperations.GetAllList(props.context).then((res) => {
+      props.setTabularData(res.value);
+    });
   };
 
   React.useEffect(() => {

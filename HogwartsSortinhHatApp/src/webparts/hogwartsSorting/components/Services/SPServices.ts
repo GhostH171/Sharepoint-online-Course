@@ -5,7 +5,7 @@ import * as dayjs from "dayjs";
 
 export class SPOpertations {
   // Get all list context : WebpartContext
-  public GetAllList(context: WebPartContext): Promise<IDropdownOption> {
+  public GetAllList(context: WebPartContext): Promise<any> {
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
       "/_api/web/lists(guid'f0fd8525-0d22-4a5a-9987-ccf9fc47dda5')/items?$orderby=FullName asc";
@@ -48,10 +48,10 @@ export class SPOpertations {
   public GetHouseList(
     context: WebPartContext,
     HouseName: string
-  ): Promise<IDropdownOption> {
+  ): Promise<any> {
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
-      "/_api/web/lists(guid'f0fd8525-0d22-4a5a-9987-ccf9fc47dda5')/items?$orderby=FullName asc&";
+      `/_api/web/lists(guid'f0fd8525-0d22-4a5a-9987-ccf9fc47dda5')/items?$orderby=FullName asc&$filter=House eq '${HouseName}'`;
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)
       .then((res: SPHttpClientResponse) => {

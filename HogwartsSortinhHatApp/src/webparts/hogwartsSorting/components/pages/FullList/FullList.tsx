@@ -1,13 +1,13 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
-import { ISortingHatProps } from "./ISortingHat";
-import styles from "./SortingHat.module.scss";
+import { IFullListProps } from "./IFullListProps";
+import styles from "./FullList.module.scss";
 import * as dayjs from "dayjs";
 
 export interface IHogwartsSortingWebPartProps {
   description: string;
 }
-const SortingHat: FunctionComponent<ISortingHatProps> = (props) => {
+const FullList: FunctionComponent<IFullListProps> = (props) => {
   return (
     <div className={styles.content}>
       List of Name and House
@@ -20,7 +20,7 @@ const SortingHat: FunctionComponent<ISortingHatProps> = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.tabularData.value.map((witch) => {
+          {props.tabularData.map((witch) => {
             return (
               <tr>
                 <td>{witch.FullName}</td>
@@ -35,4 +35,4 @@ const SortingHat: FunctionComponent<ISortingHatProps> = (props) => {
   );
 };
 
-export default SortingHat;
+export default FullList;
