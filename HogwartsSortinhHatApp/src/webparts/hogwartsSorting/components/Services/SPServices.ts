@@ -8,7 +8,7 @@ export class SPOpertations {
   public GetAllList(context: WebPartContext): Promise<any> {
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
-      "/_api/web/lists(guid'f0fd8525-0d22-4a5a-9987-ccf9fc47dda5')/items?$orderby=FullName asc";
+      "/_api/web/lists(guid'a82c76bf-8629-4c09-8cc5-7a7d2a446a13')/items?$orderby=FullName asc";
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)
       .then((res: SPHttpClientResponse) => {
@@ -51,7 +51,7 @@ export class SPOpertations {
   ): Promise<any> {
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
-      `/_api/web/lists(guid'f0fd8525-0d22-4a5a-9987-ccf9fc47dda5')/items?$orderby=FullName asc&$filter=House eq '${HouseName}'`;
+      `/_api/web/lists(guid'a82c76bf-8629-4c09-8cc5-7a7d2a446a13')/items?$orderby=FullName asc&$filter=House eq '${HouseName}'`;
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)
       .then((res: SPHttpClientResponse) => {

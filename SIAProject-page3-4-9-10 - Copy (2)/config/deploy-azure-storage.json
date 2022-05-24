@@ -1,7 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/deploy-azure-storage.schema.json",
-  "workingDir": "./release/assets/",
-  "account": "<!-- STORAGE ACCOUNT NAME -->",
-  "container": "sia-project-page-3-4-9-10",
-  "accessKey": "<!-- ACCESS KEY -->"
-}

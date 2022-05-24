@@ -1,0 +1,19 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  padding-left: 10px;
+}
+
+.answer {
+  display: flex;
+  width: 100%;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

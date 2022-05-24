@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "testwebpart-client-side-solution",
+    "id": "2f031ae6-1082-4638-964a-c0a3154dddc3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "testwebpart description"
+      },
+      "longDescription": {
+        "default": "testwebpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "testwebpart Feature",
+        "description": "The feature that activates elements of the testwebpart solution.",
+        "id": "ce00aee6-b995-4a07-8938-4e88a89a8ba5",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/testwebpart.sppkg"
+  }
+}

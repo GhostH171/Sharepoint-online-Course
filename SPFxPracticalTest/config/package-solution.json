@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sp-fx-practical-test-client-side-solution",
+    "id": "34bdd21e-1bda-43c2-aa6b-86df31c562d2",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "sp-fx-practical-test description"
+      },
+      "longDescription": {
+        "default": "sp-fx-practical-test description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "sp-fx-practical-test Feature",
+        "description": "The feature that activates elements of the sp-fx-practical-test solution.",
+        "id": "fef8e0ce-54d3-4d26-9b6e-26b794b62023",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/sp-fx-practical-test.sppkg"
+  }
+}

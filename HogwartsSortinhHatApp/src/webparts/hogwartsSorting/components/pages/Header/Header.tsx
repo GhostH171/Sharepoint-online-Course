@@ -4,9 +4,6 @@ import { IHeaderProps } from "./IHeader";
 import styles from "./Header.module.scss";
 import * as dayjs from "dayjs";
 import { SPOpertations } from "../../Services/SPServices";
-
-<link href="http://fonts.cdnfonts.com/css/halloween-spooky" rel="stylesheet" />;
-
 const spOperations = new SPOpertations();
 
 const Header: FunctionComponent<IHeaderProps> = (props) => {
