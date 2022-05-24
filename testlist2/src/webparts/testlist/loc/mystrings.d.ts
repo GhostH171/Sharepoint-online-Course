@@ -1,4 +1,4 @@
-declare interface IHogwartsSortingWebPartStrings {
+declare interface ITestlistWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -8,7 +8,7 @@ declare interface IHogwartsSortingWebPartStrings {
   AppTeamsTabEnvironment: string;
 }
 
-declare module 'HogwartsSortingWebPartStrings' {
-  const strings: IHogwartsSortingWebPartStrings;
+declare module 'TestlistWebPartStrings' {
+  const strings: ITestlistWebPartStrings;
   export = strings;
 }

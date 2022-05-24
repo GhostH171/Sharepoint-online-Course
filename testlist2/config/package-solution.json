@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "hogwarts-sortinh-hat-app-client-side-solution",
-    "id": "d45ffd87-a705-4971-a6df-5e83bf7e320a",
+    "name": "testlist-2-client-side-solution",
+    "id": "961ca6c3-12cc-4982-be87-f5a87d9f49f9",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
@@ -16,10 +16,10 @@
     },
     "metadata": {
       "shortDescription": {
-        "default": "hogwarts-sortinh-hat-app description"
+        "default": "testlist-2 description"
       },
       "longDescription": {
-        "default": "hogwarts-sortinh-hat-app description"
+        "default": "testlist-2 description"
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -27,14 +27,14 @@
     },
     "features": [
       {
-        "title": "hogwarts-sortinh-hat-app Feature",
-        "description": "The feature that activates elements of the hogwarts-sortinh-hat-app solution.",
-        "id": "70da89c7-c7d9-4c0b-809a-cfa8152dc92c",
+        "title": "testlist-2 Feature",
+        "description": "The feature that activates elements of the testlist-2 solution.",
+        "id": "b7f87e82-d34b-4aa5-8f16-98a4e1cd6e87",
         "version": "1.0.0.0"
       }
     ]
   },
   "paths": {
-    "zippedPackage": "solution/hogwarts-sortinh-hat-app.sppkg"
+    "zippedPackage": "solution/testlist-2.sppkg"
   }
 }

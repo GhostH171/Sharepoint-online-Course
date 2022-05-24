@@ -31,34 +31,38 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   ];
 
   const Question2 = () => (
-    <div>
-      <div className={styles.question}>
-        What are your favorite programming languages? Please select 2.
-      </div>
-      <div className={styles.answer}>
-        <select>
-          <option>Select an option</option>
-        </select>
-        <div className="overSelect"></div>
-      </div>
+    <div className={styles.ques2Answer}>
       <div id="checkboxes">
-        <label htmlFor="one">
-          <input type="checkbox" id="one" />
-          First checkbox
+        <label htmlFor="cSharp">
+          <input type="checkbox" id="cSharp" />
+          C#
         </label>
-        <label htmlFor="two">
-          <input type="checkbox" id="two" />
-          Second checkbox
+        <label htmlFor="java">
+          <input type="checkbox" id="java" />
+          Java
         </label>
-        <label htmlFor="three">
-          <input type="checkbox" id="three" />
-          Third checkbox
+        <label htmlFor="php">
+          <input type="checkbox" id="php" />
+          PHP
+        </label>
+        <label htmlFor="python">
+          <input type="checkbox" id="python" />
+          Python
+        </label>
+        <label htmlFor="r">
+          <input type="checkbox" id="r" />R
         </label>
       </div>
     </div>
   );
 
-  const Question3 = () => <div></div>;
+  const Question3 = () => (
+    <div>
+      <label htmlFor="birthday">Enter your birthday: </label>
+      <input type="date" id="birthday" name="birthday" />
+      <input type="Submit" />
+    </div>
+  );
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -75,13 +79,13 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
               className={styles.btnQuestion1}
               onClick={() => setCurrentQuestion(1)}
             >
-              ques 2
+              Go to question 2
             </button>
             <button
               className={styles.btnQuestion1}
               onClick={() => setCurrentQuestion(2)}
             >
-              ques 3
+              Go to question 3
             </button>
           </div>
         )}

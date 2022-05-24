@@ -2,6 +2,6 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/deploy-azure-storage.schema.json",
   "workingDir": "./release/assets/",
   "account": "<!-- STORAGE ACCOUNT NAME -->",
-  "container": "hogwarts-sortinh-hat-app",
+  "container": "testlist-2",
   "accessKey": "<!-- ACCESS KEY -->"
 }
