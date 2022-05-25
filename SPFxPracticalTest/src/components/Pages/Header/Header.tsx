@@ -3,10 +3,10 @@ import { useState } from "react";
 import { FunctionComponent } from "react";
 import { IHeaderProps } from "./IHeader";
 import styles from "./Header.module.scss";
+import PracicalTestSpFx from "../../../webparts/pracicalTestSpFx/components/PracicalTestSpFx";
 import * as dayjs from "dayjs";
 
 const Header: FunctionComponent<IHeaderProps> = (props) => {
-  const [toggle, setToggle] = useState(false);
   const [currentDate, setCurrentDate] = React.useState(
     dayjs().format(`YYYY-MM-DD HH:mm:ss`)
   );
@@ -18,8 +18,9 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
       clearInterval(intervalId);
     };
   }, []);
+
   const onStartHandler = () => {
-    setToggle(!toggle);
+    props.setIsSurveyStarted(true);
   };
   return (
     <div className={styles.container}>
@@ -33,9 +34,14 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
             <span>Date: {currentDate}</span>
           </div>
           <div className={styles.rightInfor}>
-            <button className={styles.btnStartSurvey} onClick={onStartHandler}>
-              Start Survey
-            </button>
+            {!props.isSurveyStarted && (
+              <button
+                className={styles.btnStartSurvey}
+                onClick={onStartHandler}
+              >
+                Start Survey
+              </button>
+            )}
           </div>
         </div>
       </div>

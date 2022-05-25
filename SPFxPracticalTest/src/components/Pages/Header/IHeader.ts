@@ -11,4 +11,6 @@ export interface IHeaderProps {
       }[]
     >
   >;
+  setIsSurveyStarted: React.Dispatch<React.SetStateAction<boolean>>;
+  isSurveyStarted: boolean;
 }

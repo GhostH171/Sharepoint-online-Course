@@ -1,77 +1,264 @@
 import * as React from "react";
 import { useState } from "react";
 import { FunctionComponent } from "react";
-
 import { ISurveyProps } from "./ISurvey";
 import styles from "./Survey.module.scss";
+import { FaStar } from "react-icons/fa";
+import { DatePicker } from "office-ui-fabric-react";
+import { SPOpertations } from "../../Services/SPServices";
+import * as dayjs from "dayjs";
 
 const Survey: FunctionComponent<ISurveyProps> = (props) => {
+  const spOperations = new SPOpertations();
   const questions = [
     {
       id: 1,
       questionText:
         "If you select Answer A, your next question will be Question 2. If you select Answer B, your next question will be Question 3",
-      answerOptions: [
-        { answerText: "Go to Question 2", isSubmited: false },
-        { answerText: "Go to Question 3", isSubmited: false },
-      ],
     },
     {
       id: 2,
       questionText:
         "What are your favorite programming languages? Please select 2.",
-      answerOptions: [
-        { key: "A", answerText: "C#", isSubmited: false },
-        { key: "B", answerText: "Java", isSubmited: false },
-        { key: "C", answerText: "PHP", isSubmited: false },
-        { key: "D", answerText: "Python", isSubmited: false },
-        { key: "E", answerText: "R", isSubmited: false },
-      ],
+    },
+    {
+      id: 3,
+      questionText: "When is your birthday? ",
+    },
+    {
+      id: 4,
+      questionText: "Give us a rate : ",
     },
   ];
+  const question2Ans = [
+    {
+      title: "C#",
+      id: "cSharp",
+    },
+    {
+      title: "Java",
+      id: "java",
+    },
+    {
+      title: "PHP",
+      id: "php",
+    },
+    {
+      title: "Python",
+      id: "python",
+    },
+    {
+      title: "R",
+      id: "r",
+    },
+  ];
+  const [answer2, setAnswer2] = useState<string[]>([]);
 
+  const handleAnswer2 = (key) => {
+    console.log(key);
+
+    if (answer2.findIndex((ans) => ans === key) === -1) {
+      setAnswer2((prev) => [...prev, key]);
+    } else {
+      setAnswer2((prev) => prev.filter((item) => item !== key));
+    }
+  };
+
+  // Question 2
   const Question2 = () => (
-    <div className={styles.ques2Answer}>
-      <div id="checkboxes">
-        <label htmlFor="cSharp">
-          <input type="checkbox" id="cSharp" />
-          C#
+    <div id="checkboxes" className={styles.ques2Answer}>
+      {question2Ans.map((ans) => (
+        <label htmlFor={ans.id}>
+          <input
+            type="checkbox"
+            id={ans.id}
+            checked={answer2.findIndex((a) => a === ans.title) > -1}
+            onChange={(e) => {
+              handleAnswer2(ans.title);
+            }}
+          />
+          {ans.title}
         </label>
-        <label htmlFor="java">
-          <input type="checkbox" id="java" />
-          Java
-        </label>
-        <label htmlFor="php">
-          <input type="checkbox" id="php" />
-          PHP
-        </label>
-        <label htmlFor="python">
-          <input type="checkbox" id="python" />
-          Python
-        </label>
-        <label htmlFor="r">
-          <input type="checkbox" id="r" />R
-        </label>
+      ))}
+      <div className={styles.question2Holder}>
+        <button
+          className={styles.btnQuestion2}
+          onClick={() => {
+            setCurrentQuestion(0);
+          }}
+        >
+          Back
+        </button>
+        <button
+          className={styles.btnQuestion2}
+          onClick={() => {
+            setCurrentQuestion(2);
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
 
+  //Question 3
+  const [date, setDate] = useState(null);
+  const [question3IsSelected, setQuestion3IsSelected] = useState(false);
+
+  const getAge = (date) => {
+    const today = new Date();
+    const birthDate = new Date(date);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return `You are ${age} years and ${Math.abs(m)} months old`;
+  };
+
   const Question3 = () => (
-    <div>
-      <label htmlFor="birthday">Enter your birthday: </label>
-      <input type="date" id="birthday" name="birthday" />
-      <input type="Submit" />
+    <div className={styles.ques2Answer}>
+      <DatePicker
+        value={date}
+        onSelectDate={(value) => {
+          setDate(value);
+          setQuestion3IsSelected(true);
+        }}
+      />
+      {question3IsSelected ? <p>{getAge(date)}</p> : ""}
+      <div className={styles.question2Holder}>
+        <button
+          className={styles.btnQuestion2}
+          onClick={() => {
+            setCurrentQuestion(1);
+          }}
+        >
+          Back
+        </button>
+        <button
+          className={styles.btnQuestion2}
+          onClick={() => {
+            setCurrentQuestion(3);
+          }}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
+  const colors = {
+    blue: "#4f6bed",
+    grey: "#a9a9a9",
+  };
+
+  const [currentValue, setCurrentValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(undefined);
+  const stars = new Array(5);
+  stars.fill(0);
+  const handleClick = (value) => {
+    setCurrentValue(value);
+    console.log(value);
+  };
+
+  const handleMouseOver = (newHoverValue) => {
+    setHoverValue(newHoverValue);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverValue(undefined);
+  };
+
+  const Question4 = () => (
+    <div className={styles.startsHolder}>
+      <div className={styles.stars}>
+        {stars.map((_, index) => {
+          return (
+            <FaStar
+              key={index}
+              size={24}
+              onClick={() => {
+                handleClick(index + 1);
+              }}
+              onMouseOver={() => handleMouseOver(index + 1)}
+              onMouseLeave={handleMouseLeave}
+              color={
+                (hoverValue || currentValue) > index ? colors.blue : colors.grey
+              }
+              style={{
+                marginRight: 10,
+                cursor: "pointer",
+              }}
+            />
+          );
+        })}
+      </div>
+      <div className={styles.question2Holder}>
+        <button
+          className={styles.btnQuestion2}
+          onClick={() => {
+            setCurrentQuestion(2);
+          }}
+        >
+          Back
+        </button>
+        <button
+          className={styles.btnQuestion2}
+          style={{ marginLeft: "10px" }}
+          onClick={() => {
+            onSubmit();
+          }}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
+  const onSubmit = async () => {
+    const displayName = props.userInfor.DisplayName;
+
+    const pushData = [
+      {
+        UserID: displayName,
+        Question: questions[1].questionText,
+        Answer: answer2.join(),
+      },
+      {
+        UserID: displayName,
+        Question: questions[2].questionText,
+        Answer: dayjs(date).format("DD-MM-YYYY"),
+      },
+      {
+        UserID: displayName,
+        Question: questions[3].questionText,
+        Answer: currentValue + " " + "Stars",
+      },
+    ];
+
+    const promises = pushData.map((item) => {
+      return SPOpertations.CreateListItem(
+        props.context,
+        item.UserID,
+        item.Question,
+        item.Answer
+      );
+    });
+
+    await Promise.all(promises);
+
+    await spOperations.GetExactList(props.context).then((res) => {
+      props.setTabularData(res.value);
+    });
+  };
+
   return (
     <div>
       <div className={styles.display}>
-        <div className={styles.question}>
-          Question
-          {currentQuestion + 1} : {questions[currentQuestion]?.questionText}
+        <div className={styles.question} style={{ marginBottom: "10px" }}>
+          <strong>Question {currentQuestion + 1} : </strong>
+          {questions[currentQuestion].questionText}
         </div>
         {currentQuestion === 0 && (
           <div className={styles.answer}>
@@ -83,7 +270,9 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
             </button>
             <button
               className={styles.btnQuestion1}
-              onClick={() => setCurrentQuestion(2)}
+              onClick={() => {
+                setCurrentQuestion(2);
+              }}
             >
               Go to question 3
             </button>
@@ -91,6 +280,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         )}
         {currentQuestion === 1 && <Question2 />}
         {currentQuestion === 2 && <Question3 />}
+        {currentQuestion === 3 && <Question4 />}
       </div>
     </div>
   );

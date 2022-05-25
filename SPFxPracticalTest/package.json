@@ -17,7 +17,9 @@
     "dayjs": "^1.11.2",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-icons": "^4.3.1",
+    "react-star-ratings": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "16.9.51",

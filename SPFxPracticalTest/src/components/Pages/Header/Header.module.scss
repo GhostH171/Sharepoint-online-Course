@@ -4,7 +4,7 @@
   position: relative;
   height: 12rem;
   width: 100%;
-  background-image: url("https://d2r55xnwy6nx47.cloudfront.net/uploads/2022/01/Quantum-Latin-Squares_2560_Lede.jpg");
+  background-color: #ccc;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,30 +29,31 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    color: #fff;
+    color: #000;
     font-weight: bold;
     padding-left: 10px;
   }
   .rightInfor {
     flex-direction: column;
     width: 50%;
-    color: antiquewhite;
+    color: 000;
     justify-content: center;
   }
   .btnStartSurvey {
-    background-color: #ff9cda;
+    background-color: #4f6bed;
+    color: white;
+    font-weight: bold;
     margin-top: 25px;
-    border-radius: 10px;
     width: 90%;
-    color: black;
     height: 50px;
     font-size: large;
+    border: none;
   }
   .btnStartSurvey:hover {
     cursor: pointer;
     opacity: 0.8;
   }
   .btnStartSurvey:active {
-    background-color: #ea4492;
+    background-color: #4661d5;
   }
 }
