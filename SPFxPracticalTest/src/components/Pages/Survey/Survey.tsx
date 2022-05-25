@@ -53,10 +53,12 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
     },
   ];
   const [answer2, setAnswer2] = useState<string[]>([]);
-
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [prevQuestion, setPrevQuestion] = useState(0);
   const handleAnswer2 = (key) => {
-    console.log(key);
-
+    const arrCount = [key];
+    console.log(arrCount);
+    console.log(arrCount.length);
     if (answer2.findIndex((ans) => ans === key) === -1) {
       setAnswer2((prev) => [...prev, key]);
     } else {
@@ -65,6 +67,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   };
 
   // Question 2
+  //-----------------------------------------------------------------
   const Question2 = () => (
     <div id="checkboxes" className={styles.ques2Answer}>
       {question2Ans.map((ans) => (
@@ -90,8 +93,10 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
           Back
         </button>
         <button
+          disabled={answer2.length < 2}
           className={styles.btnQuestion2}
           onClick={() => {
+            setPrevQuestion(1);
             setCurrentQuestion(2);
           }}
         >
@@ -116,6 +121,8 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
     return `You are ${age} years and ${Math.abs(m)} months old`;
   };
 
+  //-----------------------------------------------------------------
+
   const Question3 = () => (
     <div className={styles.ques2Answer}>
       <DatePicker
@@ -130,7 +137,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         <button
           className={styles.btnQuestion2}
           onClick={() => {
-            setCurrentQuestion(1);
+            setCurrentQuestion(prevQuestion);
           }}
         >
           Back
@@ -167,6 +174,8 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
+
+  //-----------------------------------------------------------------
 
   const Question4 = () => (
     <div className={styles.startsHolder}>
@@ -213,8 +222,6 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
       </div>
     </div>
   );
-
-  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const onSubmit = async () => {
     const displayName = props.userInfor.DisplayName;
@@ -266,7 +273,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
               className={styles.btnQuestion1}
               onClick={() => setCurrentQuestion(1)}
             >
-              Go to question 2
+              (A) Answer A, Go to Question 2
             </button>
             <button
               className={styles.btnQuestion1}
@@ -274,7 +281,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
                 setCurrentQuestion(2);
               }}
             >
-              Go to question 3
+              {"B"} Answer B, Go to Question 3
             </button>
           </div>
         )}
