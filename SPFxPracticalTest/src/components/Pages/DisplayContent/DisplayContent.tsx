@@ -12,14 +12,16 @@ const DisplayContent: FunctionComponent<IDisplayContentProps> = (props) => {
       <table>
         <thead>
           <tr>
+            <th>No</th>
             <th>Question</th>
             <th>Answer</th>
           </tr>
         </thead>
         <tbody>
-          {props.tabularData.map((item) => {
+          {props.tabularData.map((item, index) => {
             return (
               <tr>
+                <td>{index + 1}</td>
                 <td
                   style={{
                     textAlign: "left",

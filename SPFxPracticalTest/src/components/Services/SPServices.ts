@@ -5,9 +5,10 @@ import { IDropdownOption } from "office-ui-fabric-react";
 export class SPOpertations {
   // Get all list context : WebpartContext
   public GetExactList(context: WebPartContext): Promise<any> {
+    const listName = encodeURIComponent("Answer List");
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
-      "/_api/web/lists(guid'0b3b36c4-7d45-4e1a-8ef7-ed592b07c034')/items?$orderby=Question asc";
+      `/_api/web/lists/getbytitle('${listName}')/items?$orderby=Question asc`;
 
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)
