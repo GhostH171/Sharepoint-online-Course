@@ -55,15 +55,21 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   const [answer2, setAnswer2] = useState<string[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [prevQuestion, setPrevQuestion] = useState(0);
-  const handleAnswer2 = (key) => {
+  const handleAnswer2 = (key, e) => {
     const arrCount = [key];
-    console.log(arrCount);
-    console.log(arrCount.length);
-    if (answer2.findIndex((ans) => ans === key) === -1) {
+    const isContainAnswer = answer2.findIndex((a) => a === key) > -1;
+    if (answer2.length + 1 > 2 && !isContainAnswer) {
+      e.preventDefault();
+      return;
+    }
+    if (!isContainAnswer) {
+      console.log(1);
       setAnswer2((prev) => [...prev, key]);
     } else {
+      console.log(2);
       setAnswer2((prev) => prev.filter((item) => item !== key));
     }
+    console.log(answer2);
   };
 
   // Question 2
@@ -77,7 +83,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
             id={ans.id}
             checked={answer2.findIndex((a) => a === ans.title) > -1}
             onChange={(e) => {
-              handleAnswer2(ans.title);
+              handleAnswer2(ans.title, e);
             }}
           />
           {ans.title}
@@ -109,7 +115,8 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   //Question 3
   const [date, setDate] = useState(null);
   const [question3IsSelected, setQuestion3IsSelected] = useState(false);
-
+  console.log(date);
+  const [nextValidate, setNextValidate] = useState(false);
   const getAge = (date) => {
     const today = new Date();
     const birthDate = new Date(date);
@@ -133,6 +140,12 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         }}
       />
       {question3IsSelected ? <p>{getAge(date)}</p> : ""}
+      {nextValidate ? (
+        <p style={{ color: "red" }}>Please answer the question</p>
+      ) : (
+        ""
+      )}
+
       <div className={styles.question2Holder}>
         <button
           className={styles.btnQuestion2}
@@ -145,7 +158,12 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         <button
           className={styles.btnQuestion2}
           onClick={() => {
-            setCurrentQuestion(3);
+            if (date === null) {
+              setNextValidate(true);
+            } else {
+              setCurrentQuestion(3);
+              setNextValidate(false);
+            }
           }}
         >
           Next
@@ -153,11 +171,13 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
       </div>
     </div>
   );
+
+  // ----------------------------------------------------------------
   const colors = {
     blue: "#4f6bed",
     grey: "#a9a9a9",
   };
-
+  // ----------------------------------------------------------------
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = new Array(5);
@@ -258,6 +278,8 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
     await spOperations.GetExactList(props.context).then((res) => {
       props.setTabularData(res.value);
     });
+
+    props.setUserHasAnswer(true);
   };
 
   return (

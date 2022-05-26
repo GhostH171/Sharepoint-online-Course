@@ -20,7 +20,15 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
 
   const onStartHandler = () => {
     props.setIsSurveyStarted(true);
+    props.setIsViewResponse(false);
   };
+
+  const onViewResponse = () => {
+    props.setIsSurveyStarted(false);
+    props.setIsViewResponse(true);
+  };
+
+  console.log("asdsa", props.isSurveyStarted, props.userHasAnswer);
   return (
     <div className={styles.container}>
       <div className={styles.display}>
@@ -33,7 +41,23 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
             <span>Date: {currentDate}</span>
           </div>
           <div className={styles.rightInfor}>
-            {!props.isSurveyStarted && (
+            {/* {!props.isSurveyStarted && ?( 
+              <button
+              className={styles.btnStartSurvey}
+              onClick={onStartHandler}
+            >
+              Start Survey
+            </button>
+            )} */}
+
+            {props.userHasAnswer ? (
+              <button
+                className={styles.btnStartSurvey}
+                onClick={onViewResponse}
+              >
+                View My Response
+              </button>
+            ) : (
               <button
                 className={styles.btnStartSurvey}
                 onClick={onStartHandler}

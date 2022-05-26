@@ -4,6 +4,7 @@ import * as React from "react";
 export interface ISurveyProps {
   userInfor: any;
   context: WebPartContext;
+  setUserHasAnswer: React.Dispatch<React.SetStateAction<boolean>>;
   setTabularData: React.Dispatch<
     React.SetStateAction<
       {

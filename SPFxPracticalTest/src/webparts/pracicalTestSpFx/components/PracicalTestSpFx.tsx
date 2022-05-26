@@ -1,10 +1,9 @@
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IPracicalTestSpFxProps } from "./IPracicalTestSpFxProps";
 import Header from "../../../components/Pages/Header/Header";
 import DisplayContent from "../../../components/Pages/DisplayContent/DisplayContent";
 import Survey from "../../../components/Pages/Survey/Survey";
-
 const PracicalTestSpFx: React.FunctionComponent<IPracicalTestSpFxProps> = ({
   userInfor,
   context,
@@ -17,13 +16,29 @@ const PracicalTestSpFx: React.FunctionComponent<IPracicalTestSpFxProps> = ({
       Answer: string;
     }[]
   >(tableData.value);
-
-  // Khai báo state ở đây, biến đấy tên là isSurveyStarted, setIsSurveyStarted
-  // Nếu true thì hiển thị DisplayContent, ẩn button Start Survey
-  // Nếu false thì ẩn DisplayContent, hiển thị button Start Survey
-
-  // Riêng thằng Survey.tsx phải truyền props issurveystartaed xuống
   const [isSurveyStarted, setIsSurveyStarted] = useState(false);
+  const [isViewResponse, setIsViewResponse] = useState(false);
+  const [userHasAnswer, setUserHasAnswer] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (
+      tabularData.findIndex(
+        (tbItem) => tbItem.UserID === userInfor.DisplayName
+      ) > -1
+    ) {
+      setUserHasAnswer(true);
+    }
+  }, []);
+
+  const showTable = () => {
+    return <DisplayContent userInfor={userInfor} tabularData={tabularData} />;
+  };
+
+  const handleSubmitSurvey = (surveyStatus) => {
+    console.log("surveyStatus");
+    console.log(surveyStatus);
+    setIsSurveyStarted(surveyStatus);
+  };
 
   return (
     <div>
@@ -31,20 +46,20 @@ const PracicalTestSpFx: React.FunctionComponent<IPracicalTestSpFxProps> = ({
         userInfor={userInfor}
         context={context}
         setTabularData={setTabularData}
-        setIsSurveyStarted={setIsSurveyStarted}
+        setIsSurveyStarted={handleSubmitSurvey}
         isSurveyStarted={isSurveyStarted}
+        setUserHasAnswer={setUserHasAnswer}
+        userHasAnswer={userHasAnswer}
+        setIsViewResponse={setIsViewResponse}
       />
-      {isSurveyStarted ? (
-        <>
-          <Survey
-            userInfor={userInfor}
-            context={context}
-            setTabularData={setTabularData}
-          />
-          <DisplayContent userInfor={userInfor} tabularData={tabularData} />
-        </>
-      ) : (
-        <></>
+      {userHasAnswer && isViewResponse && showTable()}
+      {isSurveyStarted && !userHasAnswer && (
+        <Survey
+          userInfor={userInfor}
+          context={context}
+          setTabularData={setTabularData}
+          setUserHasAnswer={setUserHasAnswer}
+        />
       )}
     </div>
   );
