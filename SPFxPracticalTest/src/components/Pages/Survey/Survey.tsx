@@ -13,8 +13,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   const questions = [
     {
       id: 1,
-      questionText:
-        "If you select Answer A, your next question will be Question 2. If you select Answer B, your next question will be Question 3",
+      questionText: `If you select Answer A, your next question will be Question 2. If you select Answer B, your next question will be Question 3`,
     },
     {
       id: 2,
@@ -27,7 +26,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
     },
     {
       id: 4,
-      questionText: "Give us a rate : ",
+      questionText: "Give us a rate: ",
     },
   ];
   const question2Ans = [
@@ -56,19 +55,30 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [prevQuestion, setPrevQuestion] = useState(0);
   const handleAnswer2 = (key, e) => {
-    const arrCount = [key];
     const isContainAnswer = answer2.findIndex((a) => a === key) > -1;
     if (answer2.length + 1 > 2 && !isContainAnswer) {
       e.preventDefault();
       return;
     }
     if (!isContainAnswer) {
-      setAnswer2((prev) => [...prev, key]);
+      setAnswer2((prev) => {
+        const tempArr = [...prev, key];
+
+        setIsNext2Validate(!(tempArr.length < 2));
+
+        return tempArr;
+      });
     } else {
-      setAnswer2((prev) => prev.filter((item) => item !== key));
+      setAnswer2((prev) => {
+        const tempArr = prev.filter((item) => item !== key);
+
+        setIsNext2Validate(!(tempArr.length < 2));
+
+        return tempArr;
+      });
     }
   };
-
+  const [isNext2Validate, setIsNext2Validate] = useState(true);
   // Question 2
   //-----------------------------------------------------------------
   const Question2 = () => (
@@ -86,6 +96,9 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
           {ans.title}
         </label>
       ))}
+      {!isNext2Validate && (
+        <p style={{ color: "red" }}>Please select 2 options</p>
+      )}
       <div className={styles.question2Holder}>
         <button
           className={styles.btnQuestion2}
@@ -96,11 +109,18 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
           Back
         </button>
         <button
-          disabled={answer2.length < 2}
           className={styles.btnQuestion2}
           onClick={() => {
-            setPrevQuestion(1);
-            setCurrentQuestion(2);
+            const isAnwser2InValid = answer2.length < 2;
+
+            if (!isAnwser2InValid) {
+              setPrevQuestion(1);
+              setCurrentQuestion(2);
+            }
+
+            console.log(answer2);
+
+            setIsNext2Validate(!isAnwser2InValid);
           }}
         >
           Next
@@ -111,8 +131,10 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
 
   //Question 3
   const [date, setDate] = useState(null);
+  console.log(date, typeof date);
   const [question3IsSelected, setQuestion3IsSelected] = useState(false);
   const [nextValidate, setNextValidate] = useState(false);
+
   const getAge = (date) => {
     const today = new Date();
     const birthDate = new Date(date);
@@ -136,7 +158,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         }}
       />
       {question3IsSelected ? <p>{getAge(date)}</p> : ""}
-      {nextValidate ? (
+      {nextValidate && date === null ? (
         <p style={{ color: "red" }}>Please answer the question</p>
       ) : (
         ""
@@ -240,21 +262,28 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
 
   const onSubmit = async () => {
     const displayName = props.userInfor.DisplayName;
-
+    const questionformat = (question) => {
+      return `Question ${question.id} : ${question.questionText}`;
+    };
     const pushData = [
       {
         UserID: displayName,
-        Question: questions[1].questionText,
+        Question: questionformat(questions[0]),
+        Answer: `Go to question ${ques1Ans + 1}`,
+      },
+      {
+        UserID: displayName,
+        Question: questionformat(questions[1]),
         Answer: answer2.join(),
       },
       {
         UserID: displayName,
-        Question: questions[2].questionText,
+        Question: questionformat(questions[2]),
         Answer: dayjs(date).format("DD-MM-YYYY"),
       },
       {
         UserID: displayName,
-        Question: questions[3].questionText,
+        Question: questionformat(questions[3]),
         Answer: currentValue + " " + "Stars",
       },
     ];
@@ -276,6 +305,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
 
     props.setUserHasAnswer(true);
   };
+  const [ques1Ans, setQues1Ans] = useState(-1);
 
   return (
     <div>
@@ -288,7 +318,10 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
           <div className={styles.answer}>
             <button
               className={styles.btnQuestion1}
-              onClick={() => setCurrentQuestion(1)}
+              onClick={() => {
+                setCurrentQuestion(1);
+                setQues1Ans(1);
+              }}
             >
               (A) Answer A, Go to Question 2
             </button>
@@ -296,9 +329,10 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
               className={styles.btnQuestion1}
               onClick={() => {
                 setCurrentQuestion(2);
+                setQues1Ans(2);
               }}
             >
-              {"B"} Answer B, Go to Question 3
+              (B) Answer B, Go to Question 3
             </button>
           </div>
         )}

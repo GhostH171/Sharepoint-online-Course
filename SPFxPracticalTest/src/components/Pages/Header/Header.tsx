@@ -18,14 +18,20 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
     };
   }, []);
 
+  const [showBtnStart, setShowBtnStart] = useState(true);
+
+  const [showBtnView, setShowBtnView] = useState(true);
+
   const onStartHandler = () => {
     props.setIsSurveyStarted(true);
     props.setIsViewResponse(false);
+    setShowBtnStart(false);
   };
 
   const onViewResponse = () => {
     props.setIsSurveyStarted(false);
     props.setIsViewResponse(true);
+    setShowBtnView(false);
   };
 
   return (
@@ -40,30 +46,23 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
             <span>Date: {currentDate}</span>
           </div>
           <div className={styles.rightInfor}>
-            {/* {!props.isSurveyStarted && ?( 
-              <button
-              className={styles.btnStartSurvey}
-              onClick={onStartHandler}
-            >
-              Start Survey
-            </button>
-            )} */}
-
-            {props.userHasAnswer ? (
-              <button
-                className={styles.btnStartSurvey}
-                onClick={onViewResponse}
-              >
-                View My Response
-              </button>
-            ) : (
-              <button
-                className={styles.btnStartSurvey}
-                onClick={onStartHandler}
-              >
-                Start Survey
-              </button>
-            )}
+            {props.userHasAnswer
+              ? showBtnView && (
+                  <button
+                    className={styles.btnStartSurvey}
+                    onClick={onViewResponse}
+                  >
+                    View My Response
+                  </button>
+                )
+              : showBtnStart && (
+                  <button
+                    className={styles.btnStartSurvey}
+                    onClick={onStartHandler}
+                  >
+                    Start Survey
+                  </button>
+                )}
           </div>
         </div>
       </div>

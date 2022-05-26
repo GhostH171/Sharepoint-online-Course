@@ -7,7 +7,7 @@ export class SPOpertations {
   public GetExactList(context: WebPartContext): Promise<any> {
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
-      "/_api/web/lists(guid'0b3b36c4-7d45-4e1a-8ef7-ed592b07c034')/items";
+      "/_api/web/lists(guid'0b3b36c4-7d45-4e1a-8ef7-ed592b07c034')/items?$orderby=Question asc";
 
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)

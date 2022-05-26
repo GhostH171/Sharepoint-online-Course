@@ -9,11 +9,9 @@ export interface IHogwartsSortingWebPartProps {
 const DisplayContent: FunctionComponent<IDisplayContentProps> = (props) => {
   return (
     <div className={styles.content}>
-      <h2>Survey History</h2>
       <table>
         <thead>
           <tr>
-            <th>User ID</th>
             <th>Question</th>
             <th>Answer</th>
           </tr>
@@ -22,8 +20,15 @@ const DisplayContent: FunctionComponent<IDisplayContentProps> = (props) => {
           {props.tabularData.map((item) => {
             return (
               <tr>
-                <td>{item.UserID}</td>
-                <td>{item.Question}</td>
+                <td
+                  style={{
+                    textAlign: "left",
+                    padding: "10px",
+                    width: "80%",
+                  }}
+                >
+                  {item.Question}
+                </td>
                 <td>{item.Answer}</td>
               </tr>
             );
