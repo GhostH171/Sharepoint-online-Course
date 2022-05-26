@@ -22,7 +22,7 @@ const PracicalTestSpFx: React.FunctionComponent<IPracicalTestSpFxProps> = ({
 
   useEffect(() => {
     if (
-      tabularData.findIndex(
+      tabularData?.findIndex(
         (tbItem) => tbItem.UserID === userInfor.DisplayName
       ) > -1
     ) {

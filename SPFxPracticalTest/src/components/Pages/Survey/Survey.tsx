@@ -55,7 +55,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [prevQuestion, setPrevQuestion] = useState(0);
   const handleAnswer2 = (key, e) => {
-    const isContainAnswer = answer2.findIndex((a) => a === key) > -1;
+    const isContainAnswer = answer2?.findIndex((a) => a === key) > -1;
     if (answer2.length + 1 > 2 && !isContainAnswer) {
       e.preventDefault();
       return;
@@ -88,7 +88,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
           <input
             type="checkbox"
             id={ans.id}
-            checked={answer2.findIndex((a) => a === ans.title) > -1}
+            checked={answer2?.findIndex((a) => a === ans.title) > -1}
             onChange={(e) => {
               handleAnswer2(ans.title, e);
             }}
