@@ -117,9 +117,6 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
               setPrevQuestion(1);
               setCurrentQuestion(2);
             }
-
-            console.log(answer2);
-
             setIsNext2Validate(!isAnwser2InValid);
           }}
         >
@@ -131,7 +128,6 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
 
   //Question 3
   const [date, setDate] = useState(null);
-  console.log(date, typeof date);
   const [question3IsSelected, setQuestion3IsSelected] = useState(false);
   const [nextValidate, setNextValidate] = useState(false);
 
