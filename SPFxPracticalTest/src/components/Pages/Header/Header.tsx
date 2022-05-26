@@ -28,7 +28,6 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
     props.setIsViewResponse(true);
   };
 
-  console.log("asdsa", props.isSurveyStarted, props.userHasAnswer);
   return (
     <div className={styles.container}>
       <div className={styles.display}>

@@ -35,8 +35,6 @@ const PracicalTestSpFx: React.FunctionComponent<IPracicalTestSpFxProps> = ({
   };
 
   const handleSubmitSurvey = (surveyStatus) => {
-    console.log("surveyStatus");
-    console.log(surveyStatus);
     setIsSurveyStarted(surveyStatus);
   };
 

@@ -28,16 +28,7 @@ export default class PracicalTestSpFxWebPart extends BaseClientSideWebPart<IPrac
       })
       .then((res) => {
         const userInfor = res;
-
-        console.log(userInfor);
-
         new SPOpertations().GetExactList(this.context).then((resp) => {
-          console.log(resp);
-          // const getList =
-          //   resp?.value && resp.value.length > 0
-          //     ? resp.value.filter((newResp) => newResp.Title === "Answer List")
-          //     : [];
-          // console.log(getList);
           const element: React.ReactElement<IPracicalTestSpFxProps> =
             React.createElement(PracicalTestSpFx, {
               userInfor,

@@ -63,13 +63,10 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
       return;
     }
     if (!isContainAnswer) {
-      console.log(1);
       setAnswer2((prev) => [...prev, key]);
     } else {
-      console.log(2);
       setAnswer2((prev) => prev.filter((item) => item !== key));
     }
-    console.log(answer2);
   };
 
   // Question 2
@@ -115,7 +112,6 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   //Question 3
   const [date, setDate] = useState(null);
   const [question3IsSelected, setQuestion3IsSelected] = useState(false);
-  console.log(date);
   const [nextValidate, setNextValidate] = useState(false);
   const getAge = (date) => {
     const today = new Date();
@@ -184,7 +180,6 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   stars.fill(0);
   const handleClick = (value) => {
     setCurrentValue(value);
-    console.log(value);
   };
 
   const handleMouseOver = (newHoverValue) => {
