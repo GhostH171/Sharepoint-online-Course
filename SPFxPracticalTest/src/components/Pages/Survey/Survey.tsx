@@ -31,23 +31,23 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   ];
   const question2Ans = [
     {
-      title: "C#",
+      title: "(A) C#",
       id: "cSharp",
     },
     {
-      title: "Java",
+      title: "(B) Java",
       id: "java",
     },
     {
-      title: "PHP",
+      title: "(C) PHP",
       id: "php",
     },
     {
-      title: "Python",
+      title: "(D) Python",
       id: "python",
     },
     {
-      title: "R",
+      title: "(E) R",
       id: "r",
     },
   ];
@@ -130,20 +130,29 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
   const [date, setDate] = useState(null);
   const [question3IsSelected, setQuestion3IsSelected] = useState(false);
   const [nextValidate, setNextValidate] = useState(false);
-
+  const today = new Date();
   const getAge = (date) => {
-    const today = new Date();
     const birthDate = new Date(date);
     let age = today.getFullYear() - birthDate.getFullYear();
     const m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
       age--;
     }
-    return `You are ${age} years and ${Math.abs(m)} months old`;
+    if (date > today) {
+      return "";
+    } else {
+      return `You are ${age} years and ${Math.abs(m)} months old`;
+    }
   };
 
   //-----------------------------------------------------------------
-
+  const changeMessage = () => {
+    if (nextValidate && date === null) {
+      return "Please answer the question";
+    } else if (date > today) {
+      return "Are you time traveler?";
+    }
+  };
   const Question3 = () => (
     <div className={styles.ques2Answer}>
       <DatePicker
@@ -154,11 +163,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         }}
       />
       {question3IsSelected ? <p>{getAge(date)}</p> : ""}
-      {nextValidate && date === null ? (
-        <p style={{ color: "red" }}>Please answer the question</p>
-      ) : (
-        ""
-      )}
+      <p style={{ color: "red" }}>{changeMessage()}</p>
 
       <div className={styles.question2Holder}>
         <button
@@ -172,7 +177,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
         <button
           className={styles.btnQuestion2}
           onClick={() => {
-            if (date === null) {
+            if (date === null || date > today) {
               setNextValidate(true);
             } else {
               setCurrentQuestion(3);
@@ -255,6 +260,14 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
       </div>
     </div>
   );
+  const [ques1Ans, setQues1Ans] = useState(-1);
+  const [changeLetter, setChangeLetter] = useState("A");
+
+  React.useEffect(() => {
+    if (ques1Ans === 2) {
+      setChangeLetter("B");
+    }
+  }, [ques1Ans]);
 
   const onSubmit = async () => {
     const displayName = props.userInfor.DisplayName;
@@ -265,7 +278,7 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
       {
         UserID: displayName,
         Question: questionformat(questions[0]),
-        Answer: `Go to question ${ques1Ans + 1}`,
+        Answer: `Answer ${changeLetter}, Go to question ${ques1Ans + 1}`,
       },
       {
         UserID: displayName,
@@ -301,7 +314,6 @@ const Survey: FunctionComponent<ISurveyProps> = (props) => {
 
     props.setUserHasAnswer(true);
   };
-  const [ques1Ans, setQues1Ans] = useState(-1);
 
   return (
     <div>
