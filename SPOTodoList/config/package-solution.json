@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spo-todo-list-client-side-solution",
+    "id": "94e96688-f66c-4724-b5f2-b8e7a9713b40",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spo-todo-list description"
+      },
+      "longDescription": {
+        "default": "spo-todo-list description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spo-todo-list Feature",
+        "description": "The feature that activates elements of the spo-todo-list solution.",
+        "id": "366ff8da-d0f0-40b7-9e29-2d770f7920b3",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spo-todo-list.sppkg"
+  }
+}

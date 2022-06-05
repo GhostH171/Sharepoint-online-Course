@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "test-over",
+    "libraryId": "bdd8a63f-6880-4853-a0c9-8070e853567a",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "test-over",
+    "solutionShortDescription": "test-over description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
