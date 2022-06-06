@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "sp-fx-practical-test",
+    "libraryId": "34bdd21e-1bda-43c2-aa6b-86df31c562d2",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "sp-fx-practical-test",
+    "solutionShortDescription": "sp-fx-practical-test description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

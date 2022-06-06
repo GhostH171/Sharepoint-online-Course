@@ -16,7 +16,19 @@ export class SPOpertations {
         return res.json();
       });
   }
+  // Get list todo
+  public GetTodoList(context: WebPartContext): Promise<any> {
+    const listName = encodeURIComponent("Todos");
+    let resApiUrl: string =
+      context.pageContext.web.absoluteUrl +
+      `/_api/web/lists/getbytitle('${listName}')/items?$orderby= UserName asc`;
 
+    return context.spHttpClient
+      .get(resApiUrl, SPHttpClient.configurations.v1)
+      .then((res: SPHttpClientResponse) => {
+        return res.json();
+      });
+  }
   // Create list item
   public static CreateListItem(
     context: WebPartContext,
@@ -35,8 +47,8 @@ export class SPOpertations {
           "odata-version": "",
         },
         body: JSON.stringify({
-          username: username,
-          password: password,
+          UserName: username,
+          Password: password,
         }),
       })
       .then((res: SPHttpClientResponse) => {

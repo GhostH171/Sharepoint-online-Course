@@ -8,7 +8,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to right, #fbeee6, #f3abb6);
+  // background: linear-gradient(to right, #fbeee6, #f3abb6);
 }
 
 .container {
@@ -24,6 +24,7 @@ body {
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
@@ -99,6 +100,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .formControlCheck label {

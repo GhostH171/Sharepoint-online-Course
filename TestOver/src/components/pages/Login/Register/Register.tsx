@@ -4,12 +4,37 @@ import { FunctionComponent } from "react";
 import styles from "../../../../webparts/helloWorld/components/HelloWorld.module.scss";
 import { IRegisterProps } from "./IRegister";
 import { SPOpertations } from "../../../Services/SPService";
-import { useRouteMatch, Route } from "react-router-dom";
 
 const Register: FunctionComponent<IRegisterProps> = (props) => {
+  const spOperations = new SPOpertations();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const backtoLoginHandler = (e) => {
+    props.changeFlag(false);
+    e.preventDefault();
+  };
 
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    const pushData = [
+      {
+        userName: username,
+        passWord: password,
+      },
+    ];
+    const promises = pushData.map((item) => {
+      return SPOpertations.CreateListItem(
+        props.context,
+        item.userName,
+        item.passWord
+      );
+    });
+    await Promise.all(promises);
+
+    await spOperations.GetExactList(props.context).then((res) => {
+      props.setTabularData(res.value);
+    });
+  };
   return (
     <div className={styles.container}>
       <form>
@@ -33,7 +58,12 @@ const Register: FunctionComponent<IRegisterProps> = (props) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className={styles.btn}>SignUp</button>
+        <button className={styles.btn} onClick={onSubmitHandler}>
+          Submit
+        </button>
+        <button className={styles.btn} onClick={backtoLoginHandler}>
+          Back to Login
+        </button>
       </form>
     </div>
   );

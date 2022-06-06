@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "todo-list-spo",
+    "libraryId": "fbacf31b-5eff-46ed-abdb-524831dacdd4",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "todo-list-spo",
+    "solutionShortDescription": "todo-list-spo description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

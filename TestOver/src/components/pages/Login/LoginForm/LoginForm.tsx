@@ -4,29 +4,29 @@ import { FunctionComponent } from "react";
 import styles from "../../../../webparts/helloWorld/components/HelloWorld.module.scss";
 import { ILoginProps } from "./ILoginForm";
 import { SPOpertations } from "../../../Services/SPService";
-import { useRouteMatch, Route } from "react-router-dom";
 
 const LoginForm: FunctionComponent<ILoginProps> = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  console.log(props.account);
-  const accs = props.account?.value.map((acc) => {
-    acc.UserName;
-  });
-  console.log(accs);
+  const onGoHomeHandler = () => {
+    props.changeGoHome(true);
+  };
   const checkLogin = (e) => {
-    if (
-      username === props.account.UserName &&
-      password === props.account.Password
-    ) {
-      console.log("You are logged in");
+    const aa = props.account.value.findIndex((acc) => {
+      return acc.UserName === username && acc.Password === password;
+    });
+
+    if (aa === -1) {
+      alert("Login failed");
     } else {
-      console.log("Check again");
+      alert("Login successfully");
+      onGoHomeHandler();
     }
     e.preventDefault();
   };
-
+  const onRegisterhandler = () => {
+    props.changeFlag(true);
+  };
   return (
     <div className={styles.container}>
       <form>
@@ -53,7 +53,13 @@ const LoginForm: FunctionComponent<ILoginProps> = (props) => {
         <button className={styles.btn} onClick={checkLogin}>
           Login
         </button>
-        <button className={styles.btn}>Register</button>
+        <button
+          type="button"
+          className={styles.btn}
+          onClick={onRegisterhandler}
+        >
+          Register
+        </button>
       </form>
     </div>
   );

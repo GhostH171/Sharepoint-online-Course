@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "todo-list-spo-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/todoListSpo/TodoListSpoWebPart.js",
+          "manifest": "./src/webparts/todoListSpo/TodoListSpoWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TodoListSpoWebPartStrings": "lib/webparts/todoListSpo/loc/{locale}.js"
+  }
+}
