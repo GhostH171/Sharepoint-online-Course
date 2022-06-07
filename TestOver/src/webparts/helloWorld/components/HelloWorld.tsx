@@ -3,11 +3,12 @@ import { useState } from "react";
 import { IHelloWorldProps } from "./IHelloWorldProps";
 import LoginForm from "../../../components/pages/Login/LoginForm/LoginForm";
 import Register from "../../../components/pages/Login/Register/Register";
-import * as strings from "HelloWorldWebPartStrings";
-import Home from "../../../components/pages/Home/Home";
+import Header from "../../../components/pages/Home/header/Header";
+import TaskDisplay from "../../../components/pages/Home/taskDisplay/TaskDisplay";
 
 const HelloWorld: React.FunctionComponent<IHelloWorldProps> = ({
   account: account,
+  todo: todo,
   context,
 }) => {
   const [flag, setFlag] = React.useState(false);
@@ -16,6 +17,13 @@ const HelloWorld: React.FunctionComponent<IHelloWorldProps> = ({
     userName: string;
     passWord: string;
   }>({ userName: "", passWord: "" });
+  const [todos, setTodos] = React.useState<{
+    title: string;
+    day: Date;
+    setCompleted: boolean;
+  }>({ title: "", day: new Date(), setCompleted: false });
+  console.log(todo);
+  console.log(account);
 
   const handleFlag = (flag: boolean) => {
     setFlag(flag);
@@ -23,11 +31,14 @@ const HelloWorld: React.FunctionComponent<IHelloWorldProps> = ({
   const handleGoHome = (goHome: boolean) => {
     setGoHome(goHome);
   };
-  console.log(acc);
+
   return (
     <div>
-      {/* {goHome ? (
-        <Home />
+      {goHome ? (
+        <>
+          <Header setTodo={setTodos} />
+          <TaskDisplay context={context} todo={todo} />
+        </>
       ) : flag ? (
         <Register
           changeFlag={handleFlag}
@@ -40,8 +51,9 @@ const HelloWorld: React.FunctionComponent<IHelloWorldProps> = ({
           changeFlag={handleFlag}
           changeGoHome={handleGoHome}
         />
-      )} */}
-      <Home />
+      )}
+      <Header setTodo={setTodos} />
+      <TaskDisplay todo={todo} context={context} />
     </div>
   );
 };

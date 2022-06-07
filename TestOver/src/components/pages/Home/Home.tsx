@@ -5,13 +5,8 @@ import styles from "../../../webparts/helloWorld/components/HelloWorld.module.sc
 import Header from "./header/Header";
 import TaskDisplay from "./taskDisplay/TaskDisplay";
 
-const Home: FunctionComponent<IHomeProps> = (props) => {
-  return (
-    <div className={styles.container}>
-      <Header />
-      <TaskDisplay />
-    </div>
-  );
+const Home: FunctionComponent<IHomeProps> = ({}) => {
+  return <div className={styles.container}></div>;
 };
 
 export default Home;

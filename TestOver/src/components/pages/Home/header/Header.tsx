@@ -22,7 +22,7 @@ const Header: FunctionComponent<IHeaderProps> = (props) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <header>
         <h1>To do List</h1>
         <form className={styles.addForm} onSubmit={onSubmit}>

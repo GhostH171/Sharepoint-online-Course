@@ -28,13 +28,13 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
         return response.json();
       })
       .then((res) => {
-        const username = res;
         new SPOpertations().GetExactList(this.context).then((resp) => {
           const element: React.ReactElement<IHelloWorldProps> =
             React.createElement(HelloWorld, {
               account: resp,
               context: this.context,
             });
+          console.log(resp);
           ReactDom.render(element, this.domElement);
         });
       });

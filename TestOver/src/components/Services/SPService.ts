@@ -9,7 +9,6 @@ export class SPOpertations {
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
       `/_api/web/lists/getbytitle('${listName}')/items?$orderby= UserName asc`;
-
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)
       .then((res: SPHttpClientResponse) => {
@@ -21,7 +20,7 @@ export class SPOpertations {
     const listName = encodeURIComponent("Todos");
     let resApiUrl: string =
       context.pageContext.web.absoluteUrl +
-      `/_api/web/lists/getbytitle('${listName}')/items?$orderby= UserName asc`;
+      `/_api/web/lists/getbytitle('${listName}')/items?$orderby= Title asc`;
 
     return context.spHttpClient
       .get(resApiUrl, SPHttpClient.configurations.v1)
@@ -49,6 +48,34 @@ export class SPOpertations {
         body: JSON.stringify({
           UserName: username,
           Password: password,
+        }),
+      })
+      .then((res: SPHttpClientResponse) => {
+        return res.json();
+      });
+  }
+  // Create todo item
+  public static CreateTodoItem(
+    context: WebPartContext,
+    title: string,
+    day: Date,
+    setCompleted: boolean
+  ): Promise<IDropdownOption> {
+    let resApiUrl: string =
+      context.pageContext.web.absoluteUrl +
+      "/_api/web/lists/getbytitle('Todos')/items";
+
+    return context.spHttpClient
+      .post(resApiUrl, SPHttpClient.configurations.v1, {
+        headers: {
+          Accept: "application/json;odata=nometadata",
+          "Content-type": "application/json;odata=nometadata",
+          "odata-version": "",
+        },
+        body: JSON.stringify({
+          Title: title,
+          DayAndTime: day,
+          SetCompleted: setCompleted,
         }),
       })
       .then((res: SPHttpClientResponse) => {

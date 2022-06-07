@@ -3,16 +3,18 @@ import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { SPOpertations } from "../../components/Services/SPService";
-import { IGetTodoProps } from "./components/IGetTodoProps";
 import HelloWorld from "./components/HelloWorld";
+import { IGetTodoProps } from "./components/IGetTodoProps";
+import { IHelloWorldProps } from "./components/IHelloWorldProps";
 
-export interface IGetTodoProps {
+export interface IGetTodoWebpartProps {
   description: string;
   title: string;
   day: Date;
   setCompleted: boolean;
 }
-export default class HelloWorldWebPart extends BaseClientSideWebPart<IGetTodoProps> {
+
+export default class GetTodoWebpart extends BaseClientSideWebPart<IGetTodoWebpartProps> {
   private getTodos() {
     return this.context.spHttpClient
       .get(
@@ -29,13 +31,13 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IGetTodoPro
         return response.json();
       })
       .then((res) => {
-        const username = res;
-        new SPOpertations().GetExactList(this.context).then((resp) => {
-          const element: React.ReactElement<IGetTodoProps> =
+        new SPOpertations().GetTodoList(this.context).then((resp) => {
+          const element: React.ReactElement<IHelloWorldProps> =
             React.createElement(HelloWorld, {
               todo: resp,
               context: this.context,
             });
+          console.log(resp);
           ReactDom.render(element, this.domElement);
         });
       });

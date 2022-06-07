@@ -30,7 +30,6 @@ const Register: FunctionComponent<IRegisterProps> = (props) => {
       );
     });
     await Promise.all(promises);
-
     await spOperations.GetExactList(props.context).then((res) => {
       props.setTabularData(res.value);
     });

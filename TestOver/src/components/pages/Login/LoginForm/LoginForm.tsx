@@ -11,6 +11,7 @@ const LoginForm: FunctionComponent<ILoginProps> = (props) => {
   const onGoHomeHandler = () => {
     props.changeGoHome(true);
   };
+  console.log(props.account);
   const checkLogin = (e) => {
     const aa = props.account.value.findIndex((acc) => {
       return acc.UserName === username && acc.Password === password;
