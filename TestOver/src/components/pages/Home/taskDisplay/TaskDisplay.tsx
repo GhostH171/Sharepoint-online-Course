@@ -9,43 +9,43 @@ import { SPHttpClient, SPHttpClientResponse } from "@microsoft/sp-http";
 import { SPOpertations } from "../../../Services/SPService";
 
 const TaskDisplay: FunctionComponent<ITaskDisplayProps> = (props) => {
-  console.log(props.todo);
   const getTodos = () => {
-    console.log("abc");
-    return props.context.spHttpClient
-      .get(
-        `${props.context.pageContext.web.absoluteUrl}/_api/sp.userprofiles.peoplemanager/GetMyProperties`,
-        SPHttpClient.configurations.v1,
-        {
-          headers: {
-            Accept: "application/json;odata=nometadata",
-            "odata-version": "",
-          },
-        }
-      )
-      .then((response: SPHttpClientResponse) => {
-        return response.json();
-      })
-      .then((res) => {
-        new SPOpertations().GetTodoList(props.context).then((resp) => {
-          debugger;
-          console.log(resp);
-          return <>abc</>;
+    return new Promise((resolve, reject) => {
+      props.context.spHttpClient
+        .get(
+          `${props.context.pageContext.web.absoluteUrl}/_api/sp.userprofiles.peoplemanager/GetMyProperties`,
+          SPHttpClient.configurations.v1,
+          {
+            headers: {
+              Accept: "application/json;odata=nometadata",
+              "odata-version": "",
+            },
+          }
+        )
+        .then((response: SPHttpClientResponse) => {
+          return response.json();
+        })
+        .then((res) => {
+          new SPOpertations().GetTodoList(props.context).then((resp) => {
+            resolve(resp);
+            props.todo = resp;
+            console.log(props.todo?.value);
+          });
         });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-  const abc = () => {
-    console.log("test");
-    return <div>Hello123123</div>;
+    });
   };
 
-  const [abcd, setAbcd] = useState(<>Hello world</>);
+  async function GetData() {
+    const data = await getTodos();
+    console.log("data", data);
+    console.log("aaaa", props.todo?.value[0]?.Title);
+  }
+  useEffect(() => {
+    GetData();
+  }, []);
   return (
     <div className={styles.task}>
-      <h3>Title: {abcd} 123</h3>
+      <h3>Title: {props.todo?.value[0]?.Title} </h3>
     </div>
   );
 };
