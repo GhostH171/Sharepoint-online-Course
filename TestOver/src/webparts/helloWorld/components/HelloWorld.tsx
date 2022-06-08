@@ -5,6 +5,7 @@ import LoginForm from "../../../components/pages/Login/LoginForm/LoginForm";
 import Register from "../../../components/pages/Login/Register/Register";
 import Header from "../../../components/pages/Home/header/Header";
 import TaskDisplay from "../../../components/pages/Home/taskDisplay/TaskDisplay";
+import styles from "./HelloWorld.module.scss";
 
 const HelloWorld: React.FunctionComponent<IHelloWorldProps> = ({
   account: account,
@@ -52,8 +53,10 @@ const HelloWorld: React.FunctionComponent<IHelloWorldProps> = ({
           changeGoHome={handleGoHome}
         />
       )}
-      <Header setTodo={setTodos} />
-      <TaskDisplay todo={todo} context={context} />
+      <div className={styles.container}>
+        <Header setTodo={setTodos} />
+        <TaskDisplay todo={todo} context={context} />
+      </div>
     </div>
   );
 };

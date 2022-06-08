@@ -7,10 +7,13 @@ import styles from "../../../../webparts/helloWorld/components/HelloWorld.module
 import GetTodoWebpart from "../../../../webparts/helloWorld/GetTodos";
 import { SPHttpClient, SPHttpClientResponse } from "@microsoft/sp-http";
 import { SPOpertations } from "../../../Services/SPService";
+import { FontClassNames } from "office-ui-fabric-react";
 
-const TaskDisplay: FunctionComponent<ITaskDisplayProps> = (props) => {
+const TaskDisplay: React.FC<ITaskDisplayProps> = (props) => {
+  const [task, setTask] = useState([]);
+
   const getTodos = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise<any>((resolve, reject) => {
       props.context.spHttpClient
         .get(
           `${props.context.pageContext.web.absoluteUrl}/_api/sp.userprofiles.peoplemanager/GetMyProperties`,
@@ -27,26 +30,42 @@ const TaskDisplay: FunctionComponent<ITaskDisplayProps> = (props) => {
         })
         .then((res) => {
           new SPOpertations().GetTodoList(props.context).then((resp) => {
-            resolve(resp);
-            props.todo = resp;
-            console.log(props.todo?.value);
+            resolve(resp?.value);
           });
         });
     });
   };
 
   async function GetData() {
-    const data = await getTodos();
-    console.log("data", data);
-    console.log("aaaa", props.todo?.value[0]?.Title);
+    const data: any = await getTodos();
+
+    setTask((prev) => [...prev, ...data]);
   }
+
   useEffect(() => {
     GetData();
   }, []);
+
   return (
-    <div className={styles.task}>
-      <h3>Title: {props.todo?.value[0]?.Title} </h3>
-    </div>
+    <>
+      {task.map((item) => (
+        <>
+          <div className={styles.task}>
+            <h3>
+              Title: {item.Title}
+              <FaTimes style={{ color: "red", cursor: "pointer" }} />
+            </h3>
+            <p>Date: {item.DayAndTime}</p>
+          </div>
+        </>
+      ))}
+      <input
+        type="submit"
+        value="Logout"
+        className={styles.btn}
+        style={{ backgroundColor: "red" }}
+      />
+    </>
   );
 };
 export default TaskDisplay;
